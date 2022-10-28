@@ -7,4 +7,5 @@ int main(){
         s += i;
     }
     printf("1+2+3+4+5=%d", s);
+    return 0;
 }
