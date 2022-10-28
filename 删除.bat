@@ -1,3 +1,3 @@
-del F:\BCXX\*.exe
-del F:\BCXX\C\*.exe
-del F:\BCXX\python\*.exe
+del C\*.exe
+del python\*.exe
+del *.exe
