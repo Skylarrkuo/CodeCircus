@@ -4,10 +4,10 @@ int main()
 {
 
     int x, y;
-    printf("è¾“å…¥xçš„å€¼ï¼š");
+    printf("ÊäÈëxµÄÖµ£º");
     scanf("%d", &x);
     y = f(x);
-    printf("å‡½æ•°å€¼ä¸ºï¼š%d", y);
+    printf("º¯ÊýÖµÎª£º%d", y);
     return 0;
 }
 

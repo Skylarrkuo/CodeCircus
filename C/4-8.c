@@ -3,9 +3,9 @@
 int main()
 {
     int cj;
-    printf("è¾“å…¥æˆç»©ï¼š");
+    printf("ÊäÈë³É¼¨£º");
     scanf("%d", &cj);
-    printf("/næˆç»©ç­‰çº§ä¸ºï¼š");
+    printf("/n³É¼¨µÈ¼¶Îª£º");
     switch (cj)
     {
     case 90 ... 100:

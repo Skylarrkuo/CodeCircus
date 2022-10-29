@@ -3,7 +3,7 @@
 int main()
 {
     int a, b, c, max;
-    printf("è¾“å…¥ä¸‰ä¸ªæ•°ï¼Œç”¨é€—å·éš”å¼€ï¼š");
+    printf("ÊäÈëÈı¸öÊı£¬ÓÃ¶ººÅ¸ô¿ª£º");
     scanf("%d,%d,%d", &a, &b, &c);
     max = a;
     if (max < b)

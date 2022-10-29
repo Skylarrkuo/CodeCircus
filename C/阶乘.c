@@ -1,5 +1,5 @@
 #include <stdio.h>
-//1~5é˜¶ä¹˜
+//1~5½×³Ë
 int main(){
     int i, s,j,a;
     s = 0;
