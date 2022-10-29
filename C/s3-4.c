@@ -3,33 +3,33 @@
 int main()
 {
     int a;
-    printf("ÊäÈë0~6µÄÊı×Ö£º");
+    printf("è¾“å…¥0~6çš„æ•°å­—ï¼š");
     scanf("%d", &a);
     switch (a)
     {
     case 0:
-        printf("ĞÇÆÚÈÕ");
+        printf("æ˜ŸæœŸæ—¥");
         break;
     case 1:
-        printf("ĞÇÆÚÒ»");
+        printf("æ˜ŸæœŸä¸€");
         break;
     case 2:
-        printf("ĞÇÆÚ¶ş");
+        printf("æ˜ŸæœŸäºŒ");
         break;
     case 3:
-        printf("ĞÇÆÚÈı");
+        printf("æ˜ŸæœŸä¸‰");
         break;
     case 4:
-        printf("ĞÇÆÚËÄ");
+        printf("æ˜ŸæœŸå››");
         break;
     case 5:
-        printf("ĞÇÆÚÎå");
+        printf("æ˜ŸæœŸäº”");
         break;
     case 6:
-        printf("ĞÇÆÚÁù");
+        printf("æ˜ŸæœŸå…­");
         break;
     default:
-        printf("ÊäÈë²»ºÏ¹æ£¡");
+        printf("è¾“å…¥ä¸åˆè§„ï¼");
         break;
     }
     return 0;

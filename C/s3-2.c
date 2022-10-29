@@ -4,7 +4,7 @@ int main()
 {
     float s;
     float mony;
-    printf("ÊäÈëÀï³ÌÊý£º");
+    printf("è¾“å…¥é‡Œç¨‹æ•°ï¼š");
     scanf("%f", &s);
     if (s <= 3 && s >= 0)
     {
@@ -14,7 +14,7 @@ int main()
     {
         mony = 6 + (s - 3) * 1.5;
     }
-    printf("³µ·ÑÎª£º%fÔª", mony);
+    printf("è½¦è´¹ä¸ºï¼š%få…ƒ", mony);
 
     return 0;
 }

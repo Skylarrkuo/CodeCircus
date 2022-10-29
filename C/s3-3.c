@@ -4,11 +4,11 @@ int main()
 {
     double weight;
     double money;
-    printf("ÊäÈëĞĞÀîÖØÁ¿£º");
+    printf("è¾“å…¥è¡Œæé‡é‡ï¼š");
     scanf("%lf", &weight);
     if (weight <= 20.0)
     {
-        printf("Ãâ·Ñ£¡£¡£¡\n");
+        printf("å…è´¹ï¼ï¼ï¼\n");
         money = 0;
     }
     else if (weight > 20.0 && weight <= 40.0)
@@ -19,7 +19,7 @@ int main()
     {
         money = (weight - 20) * 0.08;
     }
-    printf("ËùĞè½ğ¶îÎª£º%fÔª", money);
+    printf("æ‰€éœ€é‡‘é¢ä¸ºï¼š%få…ƒ", money);
 
     return 0;
 }

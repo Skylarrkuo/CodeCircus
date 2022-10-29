@@ -3,9 +3,9 @@
 int main ()
 {
     int var_runoob = 10;
-    int *p;              // ¶¨ÒåÖ¸Õë±äÁ¿
+    int *p;              // å®šä¹‰æŒ‡é’ˆå˜é‡
     p = &var_runoob;
  
-   printf("var_runoob ±äÁ¿µÄµØÖ·£º %p\n", p);
+   printf("var_runoob å˜é‡çš„åœ°å€ï¼š %p\n", p);
    return 0;
 }

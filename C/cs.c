@@ -2,12 +2,12 @@
 
 int main( ) {
  float s, money, qbjlc, qbjqs, extra;
- printf(" Çë·Ö±ðÊäÈëÂ·³Ì£¬Æð²½¼ÛÂ·³Ì£¬Æð²½¼ÛÇ®Êý£¬³¬¹ýÆð²½¼ÛµÄ¼Û¸ñ£º");
+ printf(" è¯·åˆ†åˆ«è¾“å…¥è·¯ç¨‹ï¼Œèµ·æ­¥ä»·è·¯ç¨‹ï¼Œèµ·æ­¥ä»·é’±æ•°ï¼Œè¶…è¿‡èµ·æ­¥ä»·çš„ä»·æ ¼ï¼š");
  scanf("%f,%f,%f,%f", &s, &qbjlc, &qbjqs, &extra);
  if (s > 0 && s <= qbjlc)
   money = qbjqs;
  else
   money = qbjqs + (s - qbjlc) * extra;
- printf("Êä³ö³µ·ÑÎª£º%f\n", money);
+ printf("è¾“å‡ºè½¦è´¹ä¸ºï¼š%f\n", money);
  return 0;
 }
