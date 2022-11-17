@@ -1,13 +1,28 @@
 #include <stdio.h>
+int main()
+{
+    // 请在此输入您的代码
+    float NP, i, ls, jgrs, yxrs; //人数，循环变量，临时变量存储成绩，及格人数，优秀人数
+    float JGL, YXL;              //及格率，优秀率
+    scanf("%f", &NP);
+    JGL = 0;
+    YXL = 0;
+    jgrs = 0;
+    yxrs = 0;
+    for (i = 1; i <= NP; i++)
+    {
+        scanf("%f", &ls);
+        if (ls >= 60.0){
+            jgrs++;
+            if(ls>=85.0){
+                yxrs++;
+            }
+        }
+    }
+    JGL = jgrs / NP;
+    YXL = yxrs / NP;
 
-int main( ) {
- float s, money, qbjlc, qbjqs, extra;
- printf(" 请分别输入路程，起步价路程，起步价钱数，超过起步价的价格：");
- scanf("%f,%f,%f,%f", &s, &qbjlc, &qbjqs, &extra);
- if (s > 0 && s <= qbjlc)
-  money = qbjqs;
- else
-  money = qbjqs + (s - qbjlc) * extra;
- printf("输出车费为：%f\n", money);
- return 0;
+    printf("%.0f%%\n", 100 * JGL);
+    printf("%.0f%%\n", 100 * YXL);
+    return 0;
 }

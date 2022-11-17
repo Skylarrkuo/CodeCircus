@@ -2,6 +2,8 @@
 
 int main(){
     int i, s;
+    int a[4];
+    a[1]=
     s = 0;
     for (i = 1; i <= 5;i++){
         s += i;
