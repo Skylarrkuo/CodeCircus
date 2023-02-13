@@ -2,6 +2,7 @@
 #include <stdlib.h>
 int main()
 {
+    int i, j;
     int strLen = 0; //字符串长度，默认设置五个字符
     char ch;        //临时字符变量
     char *str = (char *)malloc(sizeof(char *) * strLen);
@@ -22,9 +23,9 @@ int main()
     } while (ch != '\n');
     str[count] = '\0';
     max = str[0];
-    for (int i = 0; i < count; i++)
+    for (i = 0; i < count; i++)
     {
-        for (int j = i + 1; j < count; j++)
+        for (j = i + 1; j < count; j++)
         {
             if (str[i] == str[j] && str[i] != '0')
             {
