@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Launch Hello",
+      "request": "launch",
+      "mainClass": "Java.sc.Hello",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
+      "name": "Launch HelloWorld",
+      "request": "launch",
+      "mainClass": "Java.sc.HelloWorld",
+      "projectName": "vscode_bb32341d"
+    },
+    {
       "name": "(Windows) Launch",
       "type": "cppvsdbg",
       "request": "launch",

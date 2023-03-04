@@ -3,7 +3,7 @@
 // 交换两个整数的值
 void swap(int* a, int* b) {
     int temp;
-    if (*a > *b) {  // 如果a比b大，就交换a和b
+    if (*a < *b) {  // 如果a比b大，就交换a和b
         temp = *a;
         *a = *b;
         *b = temp;
