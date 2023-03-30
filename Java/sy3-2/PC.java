@@ -1,14 +1,14 @@
 public class PC {
-    CPU c;
+    CPU cpu;
     HardDisk HD;
-    void setCPU(int c) {
-        CPU.speed = c;
+    void setCPU(CPU c) {
+        cpu = c;
     }
-    void setHardDisk(int h) {
-        HardDisk.amount = h;
+    void setHardDisk(HardDisk h) {
+        HD = h;
     }
     void show() {
-        System.out.println("CPU的速度:"+CPU.speed);
-        System.out.println("硬盘的容量为:"+HardDisk.amount);
+        System.out.println("CPU的速度:"+cpu.getSpeed());
+        System.out.println("硬盘的容量为:"+HD.getAmount());
     }
 }

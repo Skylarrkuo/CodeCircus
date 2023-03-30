@@ -5,7 +5,7 @@ public class Car {
 
     Car(String che, float pri) {
         this.chePai = che;
-        this.price = pri;
+        Car.price = pri;
     }
 
     void dismessage() {

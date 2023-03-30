@@ -7,7 +7,10 @@ public class Hello{
 		}
 }
 class Student{
-	public void speak(String s){
+	public Student(int i, int j, String string, String string2, int k) {
+    }
+
+    public void speak(String s){
 		System.out.println(s);
 	}
 }

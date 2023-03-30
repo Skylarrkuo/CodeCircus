@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "StudentTest",
+      "request": "launch",
+      "mainClass": "StudentTest",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
       "name": "Launch Hello",
       "request": "launch",
       "mainClass": "Java.sc.Hello",
