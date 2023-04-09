@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Test",
+      "request": "launch",
+      "mainClass": "Test",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
       "name": "StudentTest",
       "request": "launch",
       "mainClass": "StudentTest",

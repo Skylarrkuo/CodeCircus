@@ -1,5 +1,3 @@
-import java.util.concurrent.ThreadPoolExecutor.DiscardOldestPolicy;
-
 public class Test {
     public static void main(String args[]) {
         CPU cpu = new CPU();
