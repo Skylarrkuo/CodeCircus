@@ -1,3 +1,4 @@
+package k11;
 public class Student {
     long studentID;
     int classID;
