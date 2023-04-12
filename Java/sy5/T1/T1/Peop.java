@@ -22,11 +22,11 @@ public class Peop {
 }
 class Student extends Peop{
     String ID;
-    public Student(){
+    Student(){
         super();
         this.ID="666";
     }
-    public Student(String name, String sex, int age, String ID) {
+    Student(String name, String sex, int age, String ID) {
         super(name, sex, age);
         this.ID = ID;
     }
