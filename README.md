@@ -19,4 +19,4 @@ C/C++，Java，Python
 * 4、一点点零散的网上学到的代码
 
 
-** "The magic of myth and legend has come true in our generation. With the right spell on the keyboard, the display comes alive, full of things that couldn't have existed or happened before." -- Frederick Brooks **
+**"The magic of myth and legend has come true in our generation. With the right spell on the keyboard, the display comes alive, full of things that couldn't have existed or happened before." -- Frederick Brooks**
