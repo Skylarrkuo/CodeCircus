@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "A",
+      "request": "launch",
+      "mainClass": "packone.A",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
       "name": "main",
       "request": "launch",
       "mainClass": "T1.main",

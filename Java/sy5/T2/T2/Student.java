@@ -21,7 +21,7 @@ class UnderGraduate extends Student{
         super(name, courseA, courseB, courseC);
     }
     void isPass(){
-        System.out.println("本科生"+getName()+"的平均成绩为"+getAverage());
+        System.out.printf("本科生%s的平均成绩为%.2f\n",getName(),getAverage());
         if(getAverage()>=60){
             System.out.println("可以拿到本科生学位");
         }else{
@@ -34,7 +34,7 @@ class Graduate extends Student{
         super(name, courseA, courseB, courseC);
     }
     void isPass(){
-        System.out.println("研究生"+getName()+"的平均成绩为"+getAverage());
+        System.out.printf("研究生%s的平均成绩为%.2f\n",getName(),getAverage());
         if(getAverage()>=80){
             System.out.println("可以拿到研究生学位");
         }else{
