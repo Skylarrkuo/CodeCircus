@@ -8,7 +8,20 @@ C/C++，Java，Python
 
 ### 内容
 
-包含学习时的实验报告题<br>
-学习过程中书本上的练习内容<br>
-部分蓝桥杯试题的练习<br>
-一点点零散的网上学到的代码<br>
+*  1、课本
+> + 练习内容
+> + 2、习题
+*  实验报告
+> + 每学期的实验内容
+
+* 3、部分蓝桥杯试题的练习
+
+* 4、一点点零散的网上学到的代码
+ <br>
+ <br>
+ 
+**"The magic of myth and legend has come true in our generation.** <br>
+**With the right spell on the keyboard, the display comes alive,** <br>
+**full of things that couldn't have existed or happened before."** <br>
+ <br>
+                                               **-- Frederick Brooks**
