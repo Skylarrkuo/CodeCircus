@@ -3,6 +3,41 @@
   "configurations": [
     {
       "type": "java",
+      "name": "DrawFunction",
+      "request": "launch",
+      "mainClass": "DrawFunction",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
+      "name": "DrawMath",
+      "request": "launch",
+      "mainClass": "DrawMath",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
+      "name": "five",
+      "request": "launch",
+      "mainClass": "five",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
+      "name": "Hello",
+      "request": "launch",
+      "mainClass": "Hello",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
+      "name": "A",
+      "request": "launch",
+      "mainClass": "A",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
       "name": "A",
       "request": "launch",
       "mainClass": "packone.A",
