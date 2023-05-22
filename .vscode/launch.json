@@ -3,6 +3,41 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Demo3",
+      "request": "launch",
+      "mainClass": "t4.Demo3",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
+      "name": "Demo1",
+      "request": "launch",
+      "mainClass": "t2.Demo1",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
+      "name": "Demo",
+      "request": "launch",
+      "mainClass": "Demo",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
+      "name": "Example3_9",
+      "request": "launch",
+      "mainClass": "Example3_9",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
+      "name": "Example7_6",
+      "request": "launch",
+      "mainClass": "Example7_6",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
       "name": "DrawFunction",
       "request": "launch",
       "mainClass": "DrawFunction",
