@@ -1,7 +1,5 @@
 package t4;
 import java.util.*;
-
-
 public class Demo3 {
     public static void main(String[] args) {
         String a="欢迎光临美好生活超市,你所买的苹果20.5元，梨10.6元,铅笔5.8元，香蕉30.1元，矿泉水40.8元。";

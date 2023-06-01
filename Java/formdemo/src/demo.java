@@ -1,15 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.*;
+import com.jgoodies.forms.factories.*;
 import net.miginfocom.swing.*;
-/*
- * Created by JFormDesigner on Wed May 24 20:15:01 CST 2023
- */
-
-
-
-/**
- * @author gmc13
- */
 public class demo extends JFrame {
     public demo() {
         initComponents();
@@ -17,23 +10,26 @@ public class demo extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
-        // Generated using JFormDesigner Evaluation license - unknown
         dialogPane = new JPanel();
         contentPanel = new JPanel();
         buttonBar = new JPanel();
         okButton = new JButton();
+        comboBox1 = new JComboBox();
+        menuBar3 = new JMenuBar();
+        menu1 = new JMenu();
+        menuItem3 = new JMenuItem();
+        menu2 = new JMenu();
+        menu3 = new JMenu();
+        scrollPane1 = new JScrollPane();
+        list1 = new JList();
 
         //======== this ========
+        setTitle("Demo\u6d4b\u8bd5\u7a97\u4f53");
         var contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
         //======== dialogPane ========
         {
-            dialogPane.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0
-            ,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
-            ,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.red),
-            dialogPane. getBorder()));dialogPane. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-            ){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}});
             dialogPane.setLayout(new BorderLayout());
 
             //======== contentPanel ========
@@ -42,28 +38,87 @@ public class demo extends JFrame {
                     "insets dialog,hidemode 3",
                     // columns
                     "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
                     "[fill]",
                     // rows
                     "[]" +
                     "[]" +
+                    "[]" +
+                    "[]" +
+                    "[]" +
+                    "[]" +
                     "[]"));
             }
-            dialogPane.add(contentPanel, BorderLayout.CENTER);
+            dialogPane.add(contentPanel, BorderLayout.LINE_END);
 
             //======== buttonBar ========
             {
+                buttonBar.setBorder(new EtchedBorder());
                 buttonBar.setLayout(new MigLayout(
                     "insets dialog,alignx right",
                     // columns
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
+                    "[fill]" +
                     "[button,fill]",
                     // rows
                     null));
 
                 //---- okButton ----
                 okButton.setText("OK");
-                buttonBar.add(okButton, "cell 0 0");
+                buttonBar.add(okButton, "tag ok,cell 2 0");
+                buttonBar.add(comboBox1, "cell 9 0");
             }
-            dialogPane.add(buttonBar, BorderLayout.SOUTH);
+            dialogPane.add(buttonBar, BorderLayout.PAGE_END);
+
+            //======== menuBar3 ========
+            {
+
+                //======== menu1 ========
+                {
+                    menu1.setText("\u5f00\u59cb");
+
+                    //---- menuItem3 ----
+                    menuItem3.setText("\u65b0\u5efa");
+                    menu1.add(menuItem3);
+                }
+                menuBar3.add(menu1);
+
+                //======== menu2 ========
+                {
+                    menu2.setText("\u7f16\u8f91");
+                }
+                menuBar3.add(menu2);
+
+                //======== menu3 ========
+                {
+                    menu3.setText("\u8fd0\u884c");
+                }
+                menuBar3.add(menu3);
+            }
+            dialogPane.add(menuBar3, BorderLayout.PAGE_START);
+
+            //======== scrollPane1 ========
+            {
+                scrollPane1.setViewportView(list1);
+            }
+            dialogPane.add(scrollPane1, BorderLayout.CENTER);
         }
         contentPane.add(dialogPane, BorderLayout.CENTER);
         pack();
@@ -72,10 +127,17 @@ public class demo extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables  @formatter:off
-    // Generated using JFormDesigner Evaluation license - unknown
     private JPanel dialogPane;
     private JPanel contentPanel;
     private JPanel buttonBar;
     private JButton okButton;
+    private JComboBox comboBox1;
+    private JMenuBar menuBar3;
+    private JMenu menu1;
+    private JMenuItem menuItem3;
+    private JMenu menu2;
+    private JMenu menu3;
+    private JScrollPane scrollPane1;
+    private JList list1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
 }
