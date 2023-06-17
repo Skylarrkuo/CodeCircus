@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "demo",
+      "request": "launch",
+      "mainClass": "Java.Qimo.t4.demo",
+      "projectName": "vscode_bb32341d"
+    },
+    {
+      "type": "java",
       "name": "Demo3",
       "request": "launch",
       "mainClass": "t4.Demo3",
