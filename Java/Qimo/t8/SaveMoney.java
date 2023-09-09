@@ -17,8 +17,8 @@ public class SaveMoney {
     public static void main(String[] args) {
         ConstructionBank JS = new ConstructionBank(10000,3.216,0.028,0.00002);
         ChinaBank ZH = new ChinaBank(10000,3.216,0.029,0.000015);
-        System.out.printf("%d元存在建设银行%d年零%d天的利息为%f元\n",JS.saveMoney,(int)Math.floor(JS.year),(int)(1000*(JS.year-Math.floor(JS.year))),JS.computerInterest());
-        System.out.printf("%d元存在中国银行%d年零%d天的利息为%f元\n",ZH.saveMoney,(int)Math.floor(ZH.year),(int)(1000*(ZH.year-Math.floor(ZH.year))),ZH.computerInterest());
+        System.out.printf("%d元存在建设银行%d年零%d天的利息为%.3f元\n",JS.saveMoney,(int)Math.floor(JS.year),(int)(1000*(JS.year-Math.floor(JS.year))),JS.computerInterest());
+        System.out.printf("%d元存在中国银行%d年零%d天的利息为%.3f元\n",ZH.saveMoney,(int)Math.floor(ZH.year),(int)(1000*(ZH.year-Math.floor(ZH.year))),ZH.computerInterest());
     }
 }
 class Bank{
@@ -38,7 +38,7 @@ class ConstructionBank extends Bank{
     public ConstructionBank(int saveMoney,double year,double interest, double interestRate) {
         this.saveMoney=saveMoney;
         this.Interest=interest;
-        this.InterestRate=interestRate;
+        this.InterestRate=interestRate;//日利息
         this.year = year;
     }
     double computerInterest(){
