@@ -30,5 +30,9 @@
   ],
   "C_Cpp.errorSquiggles": "Disabled",
   "C_Cpp_Runner.useAddressSanitizer": false,
-  "java.debug.settings.onBuildFailureProceed": true
+  "java.debug.settings.onBuildFailureProceed": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "python.formatting.provider": "none"
 }
