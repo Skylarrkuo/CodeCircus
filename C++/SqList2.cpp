@@ -1,17 +1,16 @@
 #define MAXSIZE 100 // 线性表最大长度
 #define OK 1
 #define ERROR 0
-#define OVERFLOW -1
-
+#define OVERFLOW (-1)
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 typedef int Status;
-
 typedef struct
 { // 声明图书数据元素的结构体
-    char no[20];
-    char name[50];
+    string id;
+    string name;
     double price;
 } Book;
 
@@ -79,10 +78,10 @@ Status GetElem(SqList L, int i, Book &e)
         exit(OVERFLOW);
     else if (i >= 1 && i <= L.length)
         e = L.elem[i + 1];
-    return e;
+    return OK;
 }
 
-Status LocateElem(SqList L, Book e)
+Status LocateElem(SqList L, Book &e)
 {
     // 查找线性表L中元素并返回位置
     if (!L.elem)
@@ -90,10 +89,8 @@ Status LocateElem(SqList L, Book e)
     else
         for (int i = 0; i < L.length; i++)
         {
-            if (L.elem[i] == e)
-                return i + 1;
+            if (memcmp(&L.elem[i], &e, sizeof(Book))) return i + 1;
         }
-    return 0;
 }
 
 Status PriorElem(SqList L, Book cur_e, Book &Pre_e)
@@ -104,25 +101,26 @@ Status PriorElem(SqList L, Book cur_e, Book &Pre_e)
     else if (LocateElem(L, cur_e) != 0 && LocateElem(L, cur_e) != 1)
         Pre_e = L.elem[LocateElem(L, cur_e) - 1];
     else
-        return Pre_e;
-    return Pre_e;
+        return ERROR;
+    return OK;
 }
 
-Status NextElem(SqList L, Book cur_e, Book &Next_e)
+Status NextElem(SqList L, Book cur_e,Book &Next_e)
 {
     // 取cur_e在线性表L中后继
     if (!L.elem)
         exit(OVERFLOW);
     else if (LocateElem(L, cur_e) != 0 && LocateElem(L, cur_e) != L.length)
-        Pre_e = L.elem[LocateElem(L, cur_e) + 1];
+        Next_e = L.elem[LocateElem(L, cur_e) + 1];
     else
-        return Next_e;
-    return Next_e;
+        return ERROR;
+    return OK;
 }
 
 Status ListInsert(SqList &L, int i, Book e)
 {
     // 在线性表L的i位置前插入元素e
+
 }
 
 Status ListDelete(SqList &L, int i)
