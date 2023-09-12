@@ -1,78 +1,117 @@
-#define MAXSIZE 100 //çº¿æ€§è¡¨æœ€å¤§é•¿åº¦
+#define MAXSIZE 100 //ÏßÐÔ±í×î´ó³¤¶È
+#define OK 1
+#define ERROR 0
+#define OVERFLOW -1
 #include <stdio.h>
 
-//å£°æ˜Žå›¾ä¹¦çš„ç»“æž„ä½“
+typedef int Status;
+
 typedef struct
-{
+{//ÉùÃ÷Í¼ÊéÊý¾ÝÔªËØµÄ½á¹¹Ìå
     char no[20];
     char name[50];
-    float price;
+    double price;
 }Book;
 
-//å£°æ˜Žçº¿æ€§è¡¨æ“ä½œå™¨
+
 typedef struct
-{
+{//ÉùÃ÷ÏßÐÔ±í²Ù×÷Æ÷
     Book *elme;
     int length;
 }SqList;
 
-//12ç§æ“ä½œ
+
+void main()
+{//Ö÷Ò³Ãæ 
+	printf("ÊäÈëÊý×ÖÑ¡ÔñÒª½øÐÐµÄ²Ù×÷£º\n");
+	printf("1.");
+	return 0;
+}
+
+//12ÖÖ²Ù×÷//
 
 Status InitList(SqList &L){
-    //æž„å»ºçº¿æ€§è¡¨
-
+    //¹¹½¨ÏßÐÔ±í
+    L.elme = new Book[MAXSIZE];
+	if(!L.elem) exit(OVERFLOW);
+	L.length=0;
+	return OK;
 }
 
-Status DestroyList(SqList &L){
-    //é”€æ¯çº¿æ€§è¡¨L
-
+Status DestroyList(SqList *L){
+    //Ïú»ÙÏßÐÔ±íL
+    if(!L.elem) exit(OVERFLOW);
+		else delete []L.elem;
+	L.Length=0;
+	return OK;
 }
 
-Status ClearList(SqList &L){
-    //é‡ç½®çº¿æ€§è¡¨L
-
+Status ClearList(SqList *L){
+    //ÖØÖÃÏßÐÔ±íL
+    if(!L.elem) exit(OVERFLOW);
+    	eles L.length=0;
+	return OK;
 }
 
 Status ListEmpty(SqList L){
-    //åˆ¤ç©ºçº¿æ€§è¡¨L
-
+    //ÅÐ¿ÕÏßÐÔ±íL
+	if(L.length==0) return true;
+		else return false;
 }
 
 Status DestroyList(SqList L){
-    //è¿”å›žçº¿æ€§è¡¨Lå…ƒç´ ä¸ªæ•°
+    //·µ»ØÏßÐÔ±íLÔªËØ¸öÊý
+    if(!L.elem) exit(OVERFLOW);
+    else return L.length;
+}
+
+Status GetElem(SqList L,int i,Book *e){
+    //ÓÃe·µ»ØLÖÐµÚi¸öÊý¾ÝÔªËØµÄÖµ
+    if(!L.elem) exit(OVERFLOW);
+    else
+    	if(i>=1&&i<=ListLength(L))
+    		&e=L.elem[i+1]
+	return e;
+}
+
+Status LocateElem(SqList L,Book e){
+    //²éÕÒÏßÐÔ±íLÖÐÔªËØ²¢·µ»ØÎ»ÖÃ
+	if(!L.elem) exit(OVERFLOW);
+    else for(int i=0;i<L.length;i++){
+    	if(L.elem[i]==e) return i+1;
+	}
+	return 0;
+}
+
+Status PriorElem(SqList L,Book cur_e,Book *Pre_e){
+    //È¡cur_eÔÚÏßÐÔ±íLÖÐÇ°Çý
+   	if(!L.elem) exit(OVERFLOW);
+    else if(LocateElem(L,cur_e)!=0&&LocateElem(L,cur_e)!=1)
+    	Pre_e=L.elem[LocateElem(L,cur_e)-1];
+    else return Pre_e;
+    return Pre_e;
+}
+
+Status NextElem(SqList L,Book cur_e,Book *Next_e){
+    //È¡cur_eÔÚÏßÐÔ±íLÖÐºó¼Ì
+	if(!L.elem) exit(OVERFLOW);
+    else if(LocateElem(L,cur_e)!=0&&LocateElem(L,cur_e)!=L.length)
+    	Pre_e=L.elem[LocateElem(L,cur_e)+1];
+    else return Next_e;
+    return Next_e;
+}
+
+Status ListInsert(SqList *L,int i,Book e){
+    //ÔÚÏßÐÔ±íLµÄiÎ»ÖÃÇ°²åÈëÔªËØe
 
 }
 
-Status GetElem(SqList L,int i,ElemType &e){
-    //ç”¨eè¿”å›žLä¸­ç¬¬iä¸ªæ•°æ®å…ƒç´ çš„å€¼
-
-}
-
-Status LocateElem(SqList L,int e){
-    //æŸ¥æ‰¾çº¿æ€§è¡¨Lä¸­å…ƒç´ å¹¶è¿”å›žä½ç½®
-
-}
-
-Status PriorElem(SqList L,ElemType cur_e,ElemType &Pre_e){
-    //å–cur_eåœ¨çº¿æ€§è¡¨Lä¸­å‰é©±
-}
-
-Status NextElem(SqList L,ElemType cur_e,ElemType &Next_e){
-    //å–cur_eåœ¨çº¿æ€§è¡¨Lä¸­åŽç»§
-
-}
-
-Status ListInsert(SqList &L,int i,ElemType e){
-    //åœ¨çº¿æ€§è¡¨Lçš„iä½ç½®å‰æ’å…¥å…ƒç´ e
-
-}
-
-Status ListDelete(SqList &L,int i){
-    //åˆ é™¤çº¿æ€§è¡¨Lä¸­ç¬¬iä¸ªå…ƒç´ 
+Status ListDelete(SqList *L,int i){
+    //É¾³ýÏßÐÔ±íLÖÐµÚi¸öÔªËØ
 
 }
 
 Status TraverseList(SqList L){
-    //å¯¹çº¿æ€§è¡¨Lçš„æ¯ä¸ªèŠ‚ç‚¹è¿›è¡ŒéåŽ†
+    //¶ÔÏßÐÔ±íLµÄÃ¿¸ö½Úµã½øÐÐ±éÀú
 
 }
