@@ -1,0 +1,3 @@
+F:/BCXX/vscode/cmake-build-debug/CMakeFiles/vscode.dir
+F:/BCXX/vscode/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/BCXX/vscode/cmake-build-debug/CMakeFiles/rebuild_cache.dir
