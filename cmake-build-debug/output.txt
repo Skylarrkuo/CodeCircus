@@ -1,0 +1,64 @@
+Title: 9787302257646
+Author: 程序设计基础
+Year: 25
+
+Title: 9787302219972
+Author: 单片机技术及应用
+Year: 32
+
+Title: 9787302203513
+Author: 编译原理
+Year: 46
+
+Title: 9787811234923
+Author: 汇编语言程序设计教程
+Year: 21
+
+Title: 9787512100831
+Author: 计算机操作系统
+Year: 17
+
+Title: 9787302265436
+Author: 计算机导论实验指导
+Year: 18
+
+Title: 9787302180630
+Author: 实用数据结构
+Year: 29
+
+Title: 9787302225065
+Author: 数据结构（C语言版）
+Year: 38
+
+Title: 9787302171676
+Author: C#面向对象程序设计
+Year: 39
+
+Title: 9787302250692
+Author: C语言程序设计
+Year: 42
+
+Title: 9787302150664
+Author: 数据库原理
+Year: 35
+
+Title: 9787302260806
+Author: Java编程与实践
+Year: 56
+
+Title: 9787302252887
+Author: Java程序设计与应用教程
+Year: 39
+
+Title: 9787302198505
+Author: 嵌入式操作系统及编程
+Year: 25
+
+Title: 9787302169666
+Author: 软件测试
+Year: 24
+
+Title: 9787811231557
+Author: Eclipse基础与应用
+Year: 35
+

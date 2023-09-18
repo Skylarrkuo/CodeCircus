@@ -225,7 +225,7 @@ int main(){
                         i++;
                     }
                     L.length = i;
-                    cout << "输入 book.txt 信息完毕\n"<<endl;
+                    cout << "输入"<<in<<"信息完毕\n"<<endl;
                     sleep(1);
                     Read.close();
                 }
