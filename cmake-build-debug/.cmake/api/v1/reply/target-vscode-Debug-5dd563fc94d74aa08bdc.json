@@ -52,7 +52,10 @@
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1,
+				2,
+				3
 			]
 		}
 	],
@@ -89,7 +92,10 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1,
+				2,
+				3
 			]
 		}
 	],
@@ -99,6 +105,24 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "C++/SqList2.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "C++/\u7ea6\u745f\u592b\u73af/Ysf.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "C++/\u7ebf\u6027\u6808\u8868/Stack.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "C++/\u7ebf\u6027\u8868\u56fe\u4e66\u7ba1\u7406\u7cfb\u7edf/Books.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

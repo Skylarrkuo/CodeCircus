@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "vscode",
+					"name" : "untitled",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "vscode::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-vscode-Debug-86bc883af079a4138661.json",
-					"name" : "vscode",
+					"id" : "untitled::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-untitled-Debug-ada54e0643dd202980a6.json",
+					"name" : "untitled",
 					"projectIndex" : 0
 				}
 			]
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "F:/BCXX/vscode/cmake-build-debug",
-		"source" : "F:/BCXX/vscode"
+		"build" : "F:/BCXX/vscode/C++/untitled/cmake-build-debug",
+		"source" : "F:/BCXX/vscode/C++/untitled"
 	},
 	"version" : 
 	{

@@ -777,8 +777,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "F:/BCXX/vscode/cmake-build-debug",
-		"source" : "F:/BCXX/vscode"
+		"build" : "F:/BCXX/vscode/C++/untitled/cmake-build-debug",
+		"source" : "F:/BCXX/vscode/C++/untitled"
 	},
 	"version" : 
 	{

@@ -3,6 +3,10 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/C++/SqList.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/C++/SqList2.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/C++/约瑟夫环/Ysf.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/C++/线性栈表/Stack.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/C++/线性表图书管理系统/Book.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/C++/线性表图书管理系统/Books.cpp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/C/DataStructure/SqList.c" charset="GBK" />
   </component>
 </project>
