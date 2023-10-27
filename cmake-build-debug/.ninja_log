@@ -1,8 +1,0 @@
-# ninja log v5
-2	462	7167935310956976	CMakeFiles/vscode.dir/C++/SqList2.cpp.obj	400b1a134c50e909
-420	517	7167512790720703	vscode.exe	237ed3f11ec248
-11	158	7167935307907126	CMakeFiles/vscode.dir/C++/约瑟夫环/Ysf.cpp.obj	322ae9c332a16eea
-19	805	7175172559460454	CMakeFiles/vscode.dir/C++/线性表图书管理系统/Books.cpp.obj	c40944a00dd431cc
-18	239	7175181682444780	CMakeFiles/vscode.dir/C++/线性栈表/Stack.cpp.obj	10034505e05b8b89
-11	328	7175188512502625	CMakeFiles/vscode.dir/C++/线性栈表/Stack.cpp.obj	10034505e05b8b89
-20	1508	7186519142827465	CMakeFiles/vscode.dir/C++/线性栈表/Stack.cpp.obj	10034505e05b8b89
