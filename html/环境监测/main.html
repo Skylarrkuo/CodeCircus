@@ -1,0 +1,182 @@
+<template>
+    <view class="wrap">
+        <view class="dev-area">
+
+            <view class="dev-cart">
+                <view class="">
+                    <view class="dev-name">温度</view>
+                    <image class="dev-logo" src="../../static/temp.png" mode=""></image>
+                </view>
+                <view class="dev-data">{{temp}} ℃</view>
+            </view>
+
+            <view class="dev-cart">
+                <view class="">
+                    <view class="dev-name">湿度</view>
+                    <image class="dev-logo" src="../../static/humi.png" mode=""></image>
+                </view>
+                <view class="dev-data">{{humi}} %</view>
+            </view>
+
+            <view class="dev-cart" :class="{'high-smoke': smoke > 90}">
+                <view class="">
+                    <view class="dev-name">烟雾</view>
+                    <image class="dev-logo" src="../../static/smoke.png" mode=""></image>
+                </view>
+                <view class="dev-data">{{smoke}} %</view>
+            </view>
+
+            <view class="dev-cart" :class="{'high-fire': fire > 90}">
+                <view class="">
+                    <view class="dev-name">火焰</view>
+                    <image class="dev-logo" src="../../static/fire.png" mode=""></image>
+                </view>
+                <view class="dev-data">{{fire}} %</view>
+            </view>
+
+            <view class="dev-cart">
+                <view class="">
+                    <view class="dev-name">台灯</view>
+                    <image class="dev-logo" src="../../static/lamp.png" mode=""></image>
+                </view>
+                <switch :checked="led" @change="onLedSwitch" color="#2b9939" />
+            </view>
+
+            <view class="dev-cart">
+                <view class="">
+                    易万里
+                </view>
+            </view>
+
+        </view>
+    </view>
+
+</template>
+
+<script>
+    const { //调用OneNet的api接口
+        createCommonToken
+    } = require('@/key.js')
+    export default {
+        data() { //定义变量
+            return {
+                smoke: '10',
+                fire: '10',
+                temp: '11',
+                humi: '22',
+                led: true,
+                token: '',
+            }
+        },
+        onLoad() {
+            const params = {
+                author_key: 'M6BRr4FNrMOt4APFB89hGgoAGmtxQv7noZR/Ka28jdL5oD5dwmNHIylpo/3I+hkpx+VaUR5of2aRCmhef2lw/w==', //用户Accesskey
+                version: '2022-05-01', //版本号
+                user_id: '355170', //用户ID
+            }
+            this.token = createCommonToken(params); //接入OneNet平台
+        },
+        onShow() {
+            this.fetchDevData();
+            setInterval(() => {
+                this.fetchDevData();
+            }, 3000) //每3秒刷新一次
+        },
+        methods: {
+            //http的方式获取值
+            fetchDevData() {
+                uni.request({
+                    url: 'https://iot-api.heclouds.com/thingmodel/query-device-property', //OneNet设备
+                    属性最新数据查询接口地址
+					method: 'GET', //请求方式GET
+                    data: {
+                        product_id: 'QBLkOA6wEI', //设备ID
+                        device_name: 'd1', //设备名称
+                    },
+                    header: {
+                        'authorization': this.token //获取token
+                    },
+                    success: (res) => {
+                        console.log(res.data);
+                        //console.log(res.data.data[0].value); //调试台显示湿度传感器数据humi
+                        this.humi = res.data.data[0].value; //界面显示湿度传感器数据
+                        this.led = res.data.data[1].value === 'true' ? true : false;
+                        this.temp = res.data.data[2].value;
+                        this.smoke = res.data.data[3].value;
+                        this.fire = res.data.data[4].value;
+                    }
+                });
+            },
+            onLedSwitch(event) {
+                console.log(event.detail.value);
+                let value = event.detail.value;
+                uni.request({
+                    url: 'https://iot-api.heclouds.com/thingmodel/set-device-property', //OneNet设置设备属性接口地址
+                    method: 'POST', //请求方式POST
+                    data: {
+                        product_id: 'QBLkOA6wEI', //设备ID
+                        device_name: 'd1', //设备名称
+                        params: {
+                            "led": value
+                        } //设置LED的开关状态，根据开关的状态就能控制LED灯的亮灭了
+                    },
+                    header: {
+                        'authorization': this.token //获取token
+                    },
+                    success: () => {
+                        console.log('LED' + (value ? 'ON' : 'OFF') + '!');
+
+                    }
+                });
+            }
+        }
+    }
+</script>
+
+<style>
+    .wrap {
+        padding: 30rpx;
+    }
+
+    .dev-area {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .dev-cart {
+        height: 150rpx;
+        width: 320rpx;
+        box-shadow: 0 0 15rpx #ccc; //圆环轮廓
+        display: flex;
+        justify-content: space-around; //包含卡片
+        align-items: center; //居中文字
+        border-radius: 30rpx; //背景阴影
+        margin-top: 30rpx;
+    }
+
+    .dev-name {
+        font-size: 20rpx;
+        text-align: center;
+        color: #6d6d6d;
+    }
+
+    .dev-data {
+        font-size: 50rpx;
+        color: #6d6d6d;
+    }
+
+    .dev-logo {
+        height: 70rpx;
+        width: 70rpx;
+        margin-top: 10rpx;
+    }
+
+    .high-smoke {
+        background-color: red;
+    }
+
+    .high-fire {
+        background-color: red;
+    }
+</style>
