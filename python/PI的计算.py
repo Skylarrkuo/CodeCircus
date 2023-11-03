@@ -1,7 +1,7 @@
 #Π的计算
 import time
 time.process_time()
-
+'''
 #BBP公式求解法
 PI=0.0
 for k in range(0,10000):
@@ -21,6 +21,6 @@ for i in range(1,100000):
         n=n+1.0#圆内点数++
     a=a+1.0#总点数++
 PI=4*(n/a)
-'''
+
 print("Π的值是：{:.10f}".format(PI))
 print("运行时间是{:.5}s".format(time.process_time()))
