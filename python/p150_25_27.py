@@ -1,0 +1,9 @@
+#typr()对整数，浮点数，字符串，
+#len()长度计算
+#hex()计算1024，12800，65536，的十六进制
+a=1
+b=1.1
+c='Hello'
+print("{}的类型是{}".format(a,type(a).__name__))
+print("{}的类型是{}".format(b,type(b).__name__))
+print("{}的类型是{}".format(c,type(c).__name__))
