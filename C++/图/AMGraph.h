@@ -8,21 +8,19 @@ using namespace std;
 // 邻接矩阵无向图存储结构
 typedef struct
 {
+    bool visited[MVNum];
     VerTexType vexs[MVNum];
     ArcTypr arcs[MVNum][MVNum];
     int vexnum = 0, arcnum = 0;
 } AMGraph;
 
-// 查找定点是否存在并返回位置
+// 邻接矩阵的查找顶点位置
 Status LocateVex(AMGraph G, VerTexType v)
 {
     int k;
     for (k = 1; k <= G.vexnum; k++)
     {
-        if (G.vexs[k] == v)
-        {
-            break;
-        }
+        if (G.vexs[k] == v) break;
     }
     if (k > G.vexnum)
         return -1;
@@ -34,11 +32,11 @@ Status CreateUDN(AMGraph &G)
 {
     char v1, v2;
     int i, j, k, w;
-    cout << "输入无向图的定点数个数和边数，用空格隔开(<100)：" << endl;
+    cout << "输入无向图的顶点数个数和边数，用空格隔开(<100)：" << endl;
     cin >> G.vexnum >> G.arcnum;
     for (k = 1; k <= G.arcnum; k++)
     {
-        cout << "输入第" << k << "个节点:";
+        cout << "输入第" << k << "个顶点:";
         cin >> G.vexs[k];
     }
     // 构造邻接矩阵
@@ -66,7 +64,7 @@ Status CreateUDN(AMGraph &G)
 Status InputAMGraph(AMGraph G)
 {
     int i, j, k;
-    cout << "邻接矩阵无向图的定点有：" << endl;
+    cout << "邻接矩阵无向图的顶点有：" << endl;
     for (k = 1; k <= G.vexnum; k++)
     {
         printf("%c ", G.vexs[k]);
@@ -83,3 +81,20 @@ Status InputAMGraph(AMGraph G)
         printf("|\n");
     }
 }
+//清空邻接表顶点访问标志
+Status ClearAMvisited(AMGraph &G){
+    for(int i=0;i<G.vexnum;i++){
+        G.visited[i] = false;
+    }
+    return OK;
+}
+//邻接矩阵深度优先遍历(递归)
+Status DFS_AM(AMGraph G,int v){
+    //G为邻接矩阵，从第v个顶点出深度优先搜索遍历
+    cout<<G.vexs[v];
+    G.visited[v]=true;
+    for(int w=0;w<G.vexnum;w++) {
+        if ((G.arcs[v][w] != MaxInt) && (!G.visited[w])) DFS_AM(G, w);
+    }
+}
+//邻接矩阵深度优先遍历(递归)

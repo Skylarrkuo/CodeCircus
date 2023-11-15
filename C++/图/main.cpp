@@ -9,9 +9,9 @@ using namespace std;
 
 int main()
 {
-    ALGraph alGraph;
-    AMGraph amGraph;
-    int ZhuangTai = true;
+    ALGraph alGraph;//邻接表
+    AMGraph amGraph;//邻接矩阵
+    int ZhuangTai = true;//运行状态标志
     while (ZhuangTai)
     {
         cout << "============================" << endl;
@@ -22,7 +22,7 @@ int main()
         cout << "5." << endl;
         cout << "6." << endl;
         cout << "7." << endl;
-        cout << "0." << endl;
+        cout << "0.退出程序" << endl;
         cout << "============================" << endl;
         cout << "输入数子选择操作：" ;
         cin >> ZhuangTai;
@@ -46,7 +46,7 @@ int main()
             system("pause");
             break;
         case 4:
-            Display(alGraph);
+            InputALGraph(alGraph);
             system("pause");
             break;
         case 5:
