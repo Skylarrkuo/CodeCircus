@@ -102,3 +102,4 @@ Status DFS_AL(ALGraph G,int v){
         p=p->nextarc;
     }
 }
+//邻接表广度优先遍历(递归)

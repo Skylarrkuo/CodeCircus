@@ -9,6 +9,7 @@ using namespace std;
 
 int main()
 {
+   
     ALGraph alGraph;//邻接表
     AMGraph amGraph;//邻接矩阵
     int ZhuangTai = true;//运行状态标志
@@ -19,9 +20,12 @@ int main()
         cout << "2.邻接表创建无向图" << endl;
         cout << "3.输出邻接矩阵无向图" << endl;
         cout << "4.输出邻接表无向图" << endl;
-        cout << "5." << endl;
-        cout << "6." << endl;
-        cout << "7." << endl;
+        cout << "5.深度优先遍历" << endl;
+        cout << "6.广度优先遍历" << endl;
+        cout << "7.最小生成树" << endl;
+        cout << "8.最短路径" << endl;
+        cout << "9.拓扑排序" << endl;
+        cout << "10.关键路径" << endl;
         cout << "0.退出程序" << endl;
         cout << "============================" << endl;
         cout << "输入数子选择操作：" ;

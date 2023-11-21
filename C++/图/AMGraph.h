@@ -4,7 +4,7 @@ typedef char VerTexType;
 typedef int ArcTypr;
 typedef int Status;
 using namespace std;
-
+#include"SQueue.h"
 // 邻接矩阵无向图存储结构
 typedef struct
 {
@@ -97,4 +97,18 @@ Status DFS_AM(AMGraph G,int v){
         if ((G.arcs[v][w] != MaxInt) && (!G.visited[w])) DFS_AM(G, w);
     }
 }
-//邻接矩阵深度优先遍历(递归)
+//邻接矩阵广度优先遍历(递归)
+Status BFS_AM(AMGraph G,int v){
+    VerTexType u, w;
+    SqQueue Q; // 辅助队列
+    cout << G.vexs[v];
+    G.visited[v] = true;
+    InitQueue(Q);
+    EnQueue(Q, G.vexs[v]);
+    while(!QueueEmpty(Q)){
+        DeQueue(Q, u);
+        for(w=FirstAdjVex(G.u)){
+            
+        }
+    }
+}
