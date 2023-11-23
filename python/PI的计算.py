@@ -27,7 +27,7 @@ for k in range(0,10000):
 import random
 import math
 n=a=0.0
-#random.seed(9999)  #定义一个随机种子使生成结果一致
+random.seed(114514)  #定义一个随机种子使生成结果一致
 for i in range(1,100000):
     x=random.random()
     y=random.random()
