@@ -50,7 +50,6 @@ int main()
             if(a[i]%j==0)
                 n += 1;
         }
-        cout<<n<<endl;
         if(max<n){
             max = n;
             maxn = a[i];
