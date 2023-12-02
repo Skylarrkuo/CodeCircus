@@ -24,19 +24,19 @@
 
 #include <iostream>
 using namespace std;
-int n[1001][1001];
-int vist[1001][1001] = {0};
+int n[1001][1001];//方格图矩阵
+int vist[1001][1001] = {0};//访问点矩阵，映射到方格图对应位置表示是否呗访问过
 int x, y;  // 最大矩阵限制
 int v = 0; // 可达点数
 
-int gys(int a, int b)
+int gys(int a, int b)//计算最大公约数
 {
     int t, max = 0;
     if (a > b)
     {
         t = a;
         a = b;
-        b = a;
+        b = t;
     }
     for (int i = 1; i <= a; i++)
     {
@@ -46,48 +46,41 @@ int gys(int a, int b)
                 max = i;
         }
     }
-    printf("%d,%d,%d\n", max, a, b);
+    // printf("%d,%d,%d\n", max, a, b);
     return max;
 }
 
-void keda(int r, int c)
+void keda(int r, int c)//访问方格点
 {
-    printf("[%d,%d]\n", r, c);
-    if ((r >= 1 && r <= x) && (c >= 1 && c <= y)&&(vist[r][c]!=1))
+    // printf("[%d,%d]:[%d]:%d\n", r, c,n[r][c],vist[r][c]);//测试输出位置，访问点
+    if ((r >= 1 && r <= x) && (c >= 1 && c <= y))
     { // 判断位置合法性
         vist[r][c] = 1;
         v++;
         // 右
         if (vist[r][c + 1] == 0) // 判断是否访问过,若否则尝试访问
         {
-            if ((gys(n[r][c], n[r][c + 1])) > 1)
-            {
+            if ((gys(n[r][c], n[r][c + 1])) > 1) // 公约数>1就走
                 keda(r, c + 1);
-            } // 公约数>1就走
         }
         // 左
         if (vist[r][c - 1] == 0) // 判断是否访问过,若否则尝试访问
         {
-            if ((gys(n[r][c], n[r][c - 1])) > 1)
-            {
+            if ((gys(n[r][c], n[r][c - 1])) > 1) // 公约数>1就走
                 keda(r, c - 1);
-            } // 公约数>1就走
         }
         // 下
         if (vist[r - 1][c] == 0) // 判断是否访问过,若否则尝试访问
         {
-            if ((gys(n[r][c], n[r - 1][c])) > 1)
-            {
+            if ((gys(n[r][c], n[r - 1][c])) > 1) // 公约数>1就走
                 keda(r - 1, c);
-            } // 公约数>1就走
         }
         // 上
         if (vist[r + 1][c] == 0) // 判断是否访问过,若否则尝试访问
         {
-            if ((gys(n[r][c], n[r + 1][c])) > 1)
-            {
+            if ((gys(n[r][c], n[r + 1][c])) > 1) // 公约数>1就走
                 keda(r + 1, c);
-            } // 公约数>1就走
+            
         }
     }
 }
@@ -105,7 +98,7 @@ int main()
     }
     cin >> r >> c; // 位置
 
-    // 输出访问矩阵
+    /* 输出访问矩阵
     for (int i = 1; i <= x; i++)
     {
         for (int j = 1; j <= y; j++)
@@ -114,10 +107,11 @@ int main()
         }
         cout << endl;
     }
-
+    */
     keda(r, c);
     cout << "可达点数：" << v << endl;
 
+    /*输出访问矩阵
     for (int i = 1; i <= x; i++)
     {
         for (int j = 1; j <= y; j++)
@@ -126,6 +120,6 @@ int main()
         }
         cout << endl;
     }
-
+    */
     return 0;
 }

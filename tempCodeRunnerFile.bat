@@ -1,0 +1,1 @@
+del a.out /q /s
