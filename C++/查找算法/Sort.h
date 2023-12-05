@@ -8,7 +8,6 @@ using namespace std;
 typedef struct
 { // 数据元素项
     KeyType key;
-    InfoType otherinfo;
 } ElemType;
 
 typedef struct
@@ -35,7 +34,7 @@ void CreatSStable(SSTable &ST,int n){
 void InitBSTree(BSTree &T){
     //构建空二叉排序树
     T = new BSTNode;
-    T->date = NULL;
+    T->date.key=NULL;
     T->lchild = NULL;
     T->rchild = NULL;
 }
@@ -61,7 +60,7 @@ int Search_Bin(SSTable ST, KeyType key)
         else
             low = mid + 1; // 前往右区域
     }
-    return 0; // 查找失败
+    return -1; // 查找失败
 }
 
 BSTree SearchBST(BSTree T, KeyType key)
@@ -98,7 +97,6 @@ void CreatBST(BSTree &T)
         InsertBST(T, e);
         cin >> e.key;
     }
-    
 }
 
 void DeleteBST(BSTree &T, KeyType Key)
@@ -118,5 +116,14 @@ void DeleteBST(BSTree &T, KeyType Key)
     BSTree q = p;
     if((p->lchild)&&(p->rchild)){
         BSTree s = p->lchild;
+    }
+}
+
+//中序遍历的递归算法
+void InOrderTraverse(BSTree T){
+    if(T){
+        InOrderTraverse(T->lchild);
+        cout<<T->date.key<<" ";
+        InOrderTraverse(T->rchild);
     }
 }
