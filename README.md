@@ -2,6 +2,8 @@
 
 ## 编程学习记录
 
+<img src="python\ciyun\wcloud.png" style="zoom: 33%;" />
+
 ### 学习语言
 
 C/C++，Java，Python,汇编
@@ -18,8 +20,8 @@ C/C++，Java，Python,汇编
 
 * 4、一点点零散的网上学到的代码
  <br>
- <br>
- 
+  <br>
+
 **"The magic of myth and legend has come true in our generation.** <br>
 **With the right spell on the keyboard, the display comes alive,** <br>
 **full of things that couldn't have existed or happened before."** <br>
