@@ -60,7 +60,7 @@ int main()
             cout << "输入要查找的关键字：";
             cin >> key;
             n = Search_Seq(ST, key);
-            if (n == -1)
+            if (n == 0)
                 cout << "查找失败！！" << endl;
             else
                 cout << "查找成功，在第" << n + 1 << "个位置" << endl;
