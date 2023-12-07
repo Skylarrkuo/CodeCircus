@@ -1,4 +1,4 @@
-# VS Code
+# 使用VS Code
 
 ## 编程学习记录
 
