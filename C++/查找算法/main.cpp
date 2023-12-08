@@ -43,7 +43,7 @@ int main()
             system("pause");
             break;
         case 3: // 创建二叉排序数
-            cout << "按顺序输入元素，用空格隔开，以#结束创建：" << endl;
+            cout << "按顺序输入元素，用空格隔开，以0结束创建：" << endl;
             cout << ">>:";
             CreatBST(T);
             cout << "中序输出创建结果：" << endl;

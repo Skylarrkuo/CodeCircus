@@ -1,9 +1,9 @@
 #include <iostream>
-using namespace std;
 #define MAXSIZE 100 // 表最大长度
 #define KeyType int
 #define InfoType char
-#define ENDFLAG '#'
+#define ENDFLAG 0
+using namespace std;
 //================================
 typedef struct
 { // 数据元素项
@@ -32,6 +32,7 @@ void CreatSStable(SSTable &ST, int n)
     {
         cin >> ST.R[i].key;
     }
+    ST.length = n;
 }
 void InitBSTree(BSTree &T)
 {
@@ -45,8 +46,7 @@ int Search_Seq(SSTable ST, KeyType key)
 { // 算法7.2 设置监视哨的顺序查找
     int i;
     ST.R[0].key = key;
-    for (i = ST.length; ST.R[i].key != key; --i)
-        ;
+    for (i = ST.length; ST.R[i].key != key; --i);
     return i;
 }
 
