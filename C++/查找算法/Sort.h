@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#define MAXSIZE 100 //表最大长度
+#define MAXSIZE 100 // 表最大长度
 #define KeyType int
 #define InfoType char
 #define ENDFLAG '#'
@@ -21,20 +21,23 @@ typedef struct BSTNode
     ElemType date;
     struct BSTNode *lchild;
     struct BSTNode *rchild;
-} BSTNode,*BSTree;
+} BSTNode, *BSTree;
 //===================================
 
-void CreatSStable(SSTable &ST,int n){
-    //创建顺序表
-     ST.R = new ElemType[100];
-    for (int i = 0; i < n;i++){
+void CreatSStable(SSTable &ST, int n)
+{
+    // 创建顺序表
+    ST.R = new ElemType[100];
+    for (int i = 0; i < n; i++)
+    {
         cin >> ST.R[i].key;
     }
 }
-void InitBSTree(BSTree &T){
-    //构建空二叉排序树
+void InitBSTree(BSTree &T)
+{
+    // 构建空二叉排序树
     T = new BSTNode;
-    T->date.key=NULL;
+    T->date.key = NULL;
     T->lchild = NULL;
     T->rchild = NULL;
 }
@@ -42,7 +45,8 @@ int Search_Seq(SSTable ST, KeyType key)
 { // 算法7.2 设置监视哨的顺序查找
     int i;
     ST.R[0].key = key;
-    for (i = ST.length; ST.R[i].key != key; --i);
+    for (i = ST.length; ST.R[i].key != key; --i)
+        ;
     return i;
 }
 
@@ -92,7 +96,7 @@ void CreatBST(BSTree &T)
     T = NULL;
     ElemType e;
     cin >> e.key;
-    while (e.key!=ENDFLAG)
+    while (e.key != ENDFLAG)
     {
         InsertBST(T, e);
         cin >> e.key;
@@ -104,26 +108,30 @@ void DeleteBST(BSTree &T, KeyType Key)
     BSTree p = T, f = NULL;
     while (p)
     {
-        if(p->date.key==Key) break;
+        if (p->date.key == Key)
+            break;
         f = p;
-        if(p->date.key>Key)
+        if (p->date.key > Key)
             p = p->lchild;
         else
             p = p->rchild;
     }
-    if(!p)
+    if (!p)
         return;
     BSTree q = p;
-    if((p->lchild)&&(p->rchild)){
+    if ((p->lchild) && (p->rchild))
+    {
         BSTree s = p->lchild;
     }
 }
 
-//中序遍历的递归算法
-void InOrderTraverse(BSTree T){
-    if(T){
+// 中序遍历的递归算法
+void InOrderTraverse(BSTree T)
+{
+    if (T)
+    {
         InOrderTraverse(T->lchild);
-        cout<<T->date.key<<" ";
+        cout << T->date.key << " ";
         InOrderTraverse(T->rchild);
     }
 }
