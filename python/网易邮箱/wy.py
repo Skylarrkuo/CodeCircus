@@ -1,7 +1,7 @@
 #导入sqllite3模块 
 import sqlite3 
 # 1.硬盘上创建连接 
-con = sqlite3.connect("F:\\MailMasterData\\skylarrkuo@gmail.com_9946\\search.db") 
+con = sqlite3.connect("F:\\MailMasterData\\skylarrkuo@163.com_8130\\search.db") 
 # 获取cursor对象 
 cur = con.cursor() 
 # 执行sql创建表 
