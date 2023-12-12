@@ -24,18 +24,11 @@ w = wordcloud.WordCloud(
     random_state=42,             # 设置随机种子，保证每次运行生成的词云相同
     font_path="sarasa-ui-sc-lightitalic.ttf",
 )
-
 # 生成词云
 w.generate(txt)
-
 # 生成颜色映射器
 image_colors = wordcloud.ImageColorGenerator(BColor)
-
 # 用颜色映射器着色后的词云图
 plt.imshow(w.recolor(color_func=image_colors), interpolation="bilinear")
-plt.axis("off")
-plt.figure()
-
-
 # 将词云保存为图片文件
 w.to_file("wcloudzf.png")
