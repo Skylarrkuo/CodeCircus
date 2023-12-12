@@ -17,11 +17,23 @@ typedef struct
     ElemType *elem;
     int length;
 } SqList;
-void InsertSort(SqList &L){
-//对顺序表L做直接插入排序
-	***********;
+
+//=============排序算法================
+void InsertSort(SqList &L)
+{
+    // 对顺序表L做直接插入排序
 }
-void BubbleSort(SqList &L){
-//对顺序表L做冒泡排序
-	***********;
+void BubbleSort(SqList &L)
+{
+    // 对顺序表L做冒泡排序
 }
+void BInsertSort(SqList &L)
+{
+    // 对顺序表L进行这般插入排序
+}
+void ShellInsert(SqList &L){
+    //对顺序表L进行一趟希尔增量排序
+
+}
+
+void Shell
