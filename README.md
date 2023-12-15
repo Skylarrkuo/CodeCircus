@@ -2,7 +2,7 @@
 
 ## 编程学习记录
 
-<img src="python\ciyun\wHAMLET.png" style="zoom: 10%;" />
+![输入图片说明](python/ciyun/wHAMLET.png)
 
 ### 学习语言
 
