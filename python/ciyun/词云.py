@@ -15,6 +15,8 @@
 10. 对词云图进行重新着色,使用recolor方法和颜色映射器image_colors.
 11. 将生成的词云保存为图片文件wcloudzf.png.
 """
+# 引入词频统计库
+import collections
 
 # 引入用于分词的 jieba 库
 import jieba
@@ -29,17 +31,36 @@ from PIL import Image
 import numpy
 
 # 读取用于生成词云的图片
-BColor = numpy.array(Image.open("guohui.jpg"))
+BColor = numpy.array(Image.open("gz.png"))
 
 # 打开并读取文本文件
-fi = open("gov.txt", encoding="utf-8")
+fi = open("三国演义.txt", encoding="utf-8")
 t = fi.read()
+fi.close()
+
+fi = open("stopwords.txt", encoding="utf-8")
+stop = fi.read()
+fi.close()
 # 对文本进行分词
 ls = jieba.lcut(t)
 txt = " ".join(ls)
+
+# 去掉长度为1的词，包括标点
+newls = []
+for i in ls:
+    if len(i) > 1:
+        newls.append(i)
+
+# 统计词频
+counts = collections.Counter(newls)
+for word in stop:  # 去掉停用词
+    counts.pop(word, 0)
+
+print(counts.most_common(20))
+
 # 设置停用词,停用无用的词汇
 stopwords = wordcloud.STOPWORDS
-stopwords.update({"的", "和", "对", "要", "等"})
+stopwords.update(stop)
 
 # 配置词云生成器
 w = wordcloud.WordCloud(
