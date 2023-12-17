@@ -1,7 +1,6 @@
 #include <iostream>
 #define MAXSIZE 100
-#define OK 1
-#define ERROR 0
+typedef char VerTexType;
 using namespace std;
 
 typedef int Status;
@@ -33,12 +32,6 @@ Status DestroyQueue(SqQueue &Q){
     return OK;
 }
 
-Status ClearQueue(SqQueue &Q){
-    //清空队列
-    if(!Q.base) return ERROR;
-    Q.front=Q.rear=0;
-}
-
 Status QueueEmpty(SqQueue Q){
     //队列判空
     if(!Q.base) return ERROR;
@@ -46,16 +39,6 @@ Status QueueEmpty(SqQueue Q){
     else return false;
 }
 
-Status QueueLength(SqQueue Q){
-    if(!Q.base) return ERROR;
-    return Q.rear-Q.front+1;
-}
-
-Status GetHead(SqQueue Q){
-    //返回队头元素
-    if(!Q.base) return ERROR;
-    return Q.base[Q.front].date;
-}
 
 Status EnQueue(SqQueue &Q,QElemType &e){
     //入队
@@ -72,13 +55,3 @@ Status DeQueue(SqQueue &Q,QElemType &e){
     Q.front++;
     return 0;
 }
-
-Status QueueTraverse(SqQueue Q){
-    //遍历队列
-    if(!Q.base) return ERROR;
-    for(int i=Q.front;i<=Q.rear;i++){
-        cout<<Q.base[i%MAXSIZE].date<<endl;
-    }
-    return OK;
-}
-
