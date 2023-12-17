@@ -1,57 +1,61 @@
 #include <iostream>
-#include <cstring>
-#include <algorithm>
-
 using namespace std;
-
-const int N = 2100;
-
-int n = 307, m = 2022;
-int cnt = 0;
-int primes[N];
-bool st[N];
-int f[310][N];
-
-void get_primes(int n)
+int p[100000];
+int l;
+long pow_x(long n)
 {
-    for (int i = 2; i <= n; i++)
+    if (n == 0)
+        return 1;
+    return pow_x(--n) * 16;
+}
+void C16_8()
+{
+    int i = 0, k = 0, n = 0;
+    long sum = 0;
+    char c[100000];
+    int j[10];
+    do
     {
-        if (!st[i])
+        c[i++] = getchar();
+    } while (c[i - 1] != '\n');
+    n = i - 1;
+    for (i = 0; i < n; i++)
+    {
+        if (c[i] < 65)
         {
-            primes[++cnt] = i;
-            for (int j = i + i; j <= n; j += i)
-                st[j] = true;
+            sum = sum + int(c[i] - 48) * pow_x(n - 1 - i);
+        }
+        else
+        {
+            sum = sum + int(c[i] - 55) * pow_x((n - 1 - i));
         }
     }
+    while (sum > 8)
+    {
+        j[k] = sum % 8;
+        k++;
+        sum = sum / 8;
+    }
+    j[k] = sum;
+    for (i = k; i >= 0; i--)
+    {
+        p[l] = j[i];
+        l++;
+    }
+    p[l] = 8;
+    l++;
 }
-
 int main()
 {
-    get_primes(2022);
-
-    for (int i = 1; i <= n; i++)
-        for (int j = 2; j <= m; j++)
-        {
-            if (primes[i] <= j)
-            {
-                f[i][j] = max(f[i - 1][j], f[i - 1][j - primes[i]] + primes[i]);
-            }
-            else
-                f[i][j] = f[i - 1][j];
-        }
-
-    int j = m, res = 0;
-    for (int i = n; i; i--)
-        if (f[i][j] != f[i - 1][j])
-        {
-            j -= primes[i];
-            res++;
-            cout << primes[i] << ' ';
-        }
-
-    puts("");
-    // cout << f[n][m] << endl;
-    cout << res << endl;
-
+    int i, n = 0;
+    cin >> n;
+    getchar();
+    for (i = 1; i <= n; i++)
+        C16_8();
+    for (i = 0; i < l; i++)
+        if (p[i] == 8)
+            cout << endl;
+        else
+            cout << p[i];
     return 0;
 }

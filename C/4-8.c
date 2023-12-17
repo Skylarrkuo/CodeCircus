@@ -3,9 +3,9 @@
 int main()
 {
     int cj;
-    printf("输入成绩：");
+    printf("输入成绩:");
     scanf("%d", &cj);
-    printf("/n成绩等级为：");
+    printf("/n成绩等级为:");
     switch (cj)
     {
     case 90 ... 100:
