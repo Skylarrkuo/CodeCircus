@@ -21,7 +21,7 @@ typedef struct
 {
     bool visited[MVNum]; // 顶点访问标志
     AdjList vertices;
-    int vexnum=0, arcnum=0; // 顶点数和边数
+    int vexnum = 0, arcnum = 0; // 顶点数和边数
 } ALGraph;
 
 // 邻接表的查找顶点位置
