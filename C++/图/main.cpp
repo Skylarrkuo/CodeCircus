@@ -27,7 +27,7 @@ int main()
         cout << "8.邻接表广度优先遍历" << endl;
         cout << "0.退出程序" << endl;
         cout << "============================" << endl;
-        cout << "输入数子选择操作:";
+        cout << "输入数字选择操作:";
         cin >> ZhuangTai;
         switch (ZhuangTai)
         {

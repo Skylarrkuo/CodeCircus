@@ -86,25 +86,26 @@ Status InputAMGraph(AMGraph G)
 // 清空邻接表顶点访问标志
 Status ClearAMvisited(AMGraph &G)
 {
-    for (int i = 0; i < G.vexnum; i++)
+    for (int i = 0; i <= G.vexnum; i++)
     {
         G.visited[i] = false;
     }
     return OK;
 }
 // 邻接矩阵深度优先遍历(递归)
-Status DFS_AM(AMGraph G, int v)
+Status DFS_AM(AMGraph &G, int v)
 {
     // G为邻接矩阵,从第v个顶点出深度优先搜索遍历
     cout << G.vexs[v];
     G.visited[v] = true;
-    for (int w = 0; w < G.vexnum; w++)
+    for (int w = 0; w <= G.vexnum; w++)
     {
         if ((G.arcs[v][w] != MaxInt) && (!G.visited[w]))
             DFS_AM(G, w);
     }
     return OK;
 }
+
 Status BFS_AM(AMGraph G, int v)
 {
     SqQueue Q;           // 创建一个队列Q

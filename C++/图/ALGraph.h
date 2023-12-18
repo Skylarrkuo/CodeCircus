@@ -7,8 +7,8 @@ typedef int Status;
 // 边结点
 typedef struct ArcNode
 {
-    int adjvex;              // 该边指向顶点的位置
-    struct ArcNode *nextarc; // 指向下一条边
+    int adjvex;                     // 该边指向顶点的位置
+    struct ArcNode *nextarc = NULL; // 指向下一条边
 } ArcNode;
 // 表头结点,顶点信息
 typedef struct VNode
@@ -30,8 +30,11 @@ int ALLocateVex(ALGraph G, VertexType u)
     int i;
     for (i = 0; i < G.vexnum; ++i)
         if (G.vertices[i].data == u)
+        {
+            cout << i << " " << endl;
             return i;
-    return -1;
+        }
+    return NULL;
 }
 // 邻接表创建无向图
 Status CreateUDG(ALGraph &G)
@@ -64,7 +67,7 @@ Status CreateUDG(ALGraph &G)
         G.vertices[i].firstarc = p1;
         p2 = new ArcNode;
         p2->adjvex = i;
-        p1->nextarc = G.vertices[j].firstarc;
+        p2->nextarc = G.vertices[j].firstarc;
         G.vertices[j].firstarc = p2;
     }
     return OK;
@@ -72,6 +75,7 @@ Status CreateUDG(ALGraph &G)
 // 输出邻接表
 void InputALGraph(ALGraph G)
 {
+
     int i;
     ArcNode *p;
     cout << G.vexnum << "个顶点:";
@@ -96,7 +100,7 @@ void InputALGraph(ALGraph G)
 // 清空邻接表顶点访问标志
 Status ClearALvisited(ALGraph &G)
 {
-    for (int i = 0; i < G.vexnum; i++)
+    for (int i = 0; i <= G.vexnum; i++)
     {
         G.visited[i] = false;
     }
@@ -104,7 +108,7 @@ Status ClearALvisited(ALGraph &G)
 }
 
 // 邻接表深度优先遍历(递归)
-Status DFS_AL(ALGraph G, int v)
+Status DFS_AL(ALGraph &G, int v)
 {
     cout << G.vertices[v].data;
     G.visited[v] = true;
@@ -118,9 +122,12 @@ Status DFS_AL(ALGraph G, int v)
     }
     return OK;
 }
+
 // 邻接表广度优先遍历(递归)
-Status BFS_AL(ALGraph G, int v)
+Status BFS_AL(ALGraph &G, int v)
 {
+    int w;
+    ArcNode *p;
     SqQueue Q;                  // 声明一个队列Q
     InitQueue(Q);               // 初始化队列Q
     cout << G.vertices[v].data; // 输出起始顶点的数据元素
@@ -129,11 +136,10 @@ Status BFS_AL(ALGraph G, int v)
     e.date = v;
     EnQueue(Q, e); // 起始顶点入队
     while (!QueueEmpty(Q))
-    { // 循环直到队列为空
-        int w;
+    {                  // 循环直到队列为空
         DeQueue(Q, e); // 出队一个顶点
         w = e.date;
-        ArcNode *p = G.vertices[w].firstarc;
+        p = G.vertices[w].firstarc;
         while (p != NULL)
         { // 遍历顶点w的邻接顶点
             if (!G.visited[p->adjvex])

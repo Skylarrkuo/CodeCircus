@@ -1,12 +1,12 @@
 #include <iostream>
 #define MAXSIZE 100
-typedef char VerTexType;
+typedef int VerTex;
 using namespace std;
 
 typedef int Status;
 
 typedef struct {
-    VerTexType date;
+    VerTex date;
 }QElemType;
 
 typedef struct {
