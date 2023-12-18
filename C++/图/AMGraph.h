@@ -1,6 +1,4 @@
 using namespace std;
-#define MVNum 100
-#define MaxInt 32767
 typedef char VerTexType;
 typedef int ArcTypr;
 typedef int Status;
@@ -33,11 +31,11 @@ Status CreateUDN(AMGraph &G)
 {
     char v1, v2;
     int i, j, k, w;
-    cout << "输入无向图的顶点数个数和边数,用空格隔开(<100):" << endl;
+    cout << "输入无向图的顶点数个数和边数,用空格隔开(<100):";
     cin >> G.vexnum >> G.arcnum;
+    cout << "输入" << G.vexnum << "个顶点:";
     for (k = 1; k <= G.arcnum; k++)
     {
-        cout << "输入第" << k << "个顶点:";
         cin >> G.vexs[k];
     }
     // 构造邻接矩阵

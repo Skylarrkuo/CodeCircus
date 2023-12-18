@@ -1,10 +1,6 @@
-#include <iostream>
-#define MAXSIZE 100
 typedef int VerTex;
 using namespace std;
-
 typedef int Status;
-
 typedef struct {
     VerTex date;
 }QElemType;
@@ -43,7 +39,7 @@ Status QueueEmpty(SqQueue Q){
 Status EnQueue(SqQueue &Q,QElemType &e){
     //入队
     if(!Q.base) return ERROR;
-    Q.base[Q.rear%MAXSIZE+1]=e;
+    Q.base[Q.rear%MAXSIZE]=e;
     Q.rear++;
     return OK;
 }

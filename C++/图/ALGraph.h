@@ -21,7 +21,7 @@ typedef struct
 {
     bool visited[MVNum]; // 顶点访问标志
     AdjList vertices;
-    int vexnum, arcnum; // 顶点数和边数
+    int vexnum=0, arcnum=0; // 顶点数和边数
 } ALGraph;
 
 // 邻接表的查找顶点位置
@@ -30,11 +30,8 @@ int ALLocateVex(ALGraph G, VertexType u)
     int i;
     for (i = 0; i < G.vexnum; ++i)
         if (G.vertices[i].data == u)
-        {
-            cout << i << " " << endl;
             return i;
-        }
-    return NULL;
+    return -1;
 }
 // 邻接表创建无向图
 Status CreateUDG(ALGraph &G)
@@ -123,24 +120,24 @@ Status DFS_AL(ALGraph &G, int v)
     return OK;
 }
 
-// 邻接表广度优先遍历(递归)
+// 邻接表广度优先遍历
 Status BFS_AL(ALGraph &G, int v)
 {
     int w;
     ArcNode *p;
-    SqQueue Q;                  // 声明一个队列Q
-    InitQueue(Q);               // 初始化队列Q
-    cout << G.vertices[v].data; // 输出起始顶点的数据元素
-    G.visited[v] = true;        // 标记起始顶点为已访问
+    SqQueue Q;    // 声明一个队列Q
+    InitQueue(Q); // 初始化队列Q
     QElemType e;
     e.date = v;
     EnQueue(Q, e); // 起始顶点入队
+    cout << G.vertices[v].data;
+    G.visited[v] = true; // 标记起始顶点为已访问
     while (!QueueEmpty(Q))
     {                  // 循环直到队列为空
         DeQueue(Q, e); // 出队一个顶点
         w = e.date;
         p = G.vertices[w].firstarc;
-        while (p != NULL)
+        while (p)
         { // 遍历顶点w的邻接顶点
             if (!G.visited[p->adjvex])
             {                                       // 如果邻接顶点未被访问过
