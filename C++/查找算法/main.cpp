@@ -43,44 +43,44 @@ int main()
             system("pause");
             break;
         case 3: // 创建二叉排序数
-            cout << "按顺序输入元素，用空格隔开，以0结束创建：" << endl;
+            cout << "按顺序输入元素,用空格隔开,以0结束创建:" << endl;
             cout << ">>:";
             CreatBST(T);
-            cout << "中序输出创建结果：" << endl;
+            cout << "中序输出创建结果:" << endl;
             InOrderTraverse(T);
             system("pause");
             break;
         case 4:
-            cout << "输入一个元素以插入二叉排序树：";
+            cout << "输入一个元素以插入二叉排序树:";
             cin >> e.key;
             InsertBST(T, e);
             system("pause");
             break;
         case 5:
-            cout << "输入要查找的关键字：";
+            cout << "输入要查找的关键字:";
             cin >> key;
             n = Search_Seq(ST, key);
             if (n == 0)
-                cout << "查找失败！！" << endl;
+                cout << "查找失败!!" << endl;
             else
-                cout << "查找成功，在第" << n + 1 << "个位置" << endl;
+                cout << "查找成功,在第" << n + 1 << "个位置" << endl;
             system("pause");
             break;
         case 6:
-            cout << "输入要查找的关键字：";
+            cout << "输入要查找的关键字:";
             cin >> key;
             n = Search_Bin(ST, key);
             if (n == -1)
-                cout << "查找失败！！" << endl;
+                cout << "查找失败!!" << endl;
             else
-                cout << "查找成功，在第" << n + 1 << "个位置" << endl;
+                cout << "查找成功,在第" << n + 1 << "个位置" << endl;
             system("pause");
             break;
         case 7:
-            cout << "输入要查找的关键字：";
+            cout << "输入要查找的关键字:";
             cin >> key;
             if (!SearchBST(T, key))
-                cout << "查找失败！！" << endl;
+                cout << "查找失败!!" << endl;
             else
                 cout << "查找成功~该数据存在" << endl;
             system("pause");
@@ -90,3 +90,8 @@ int main()
     }
     return 0;
 }
+/*
+①已经包含11个数据元素的有序表(5 16 20 27 30 36 44 55 60 67 71),请给出查找关键字为60,70的顺序查找和折半查找的结果;
+②设定关键字的输入序列为(45 24 53 12 90),请创建一棵二叉排序树并完成查找99是否在其中.
+
+*/

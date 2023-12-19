@@ -1,4 +1,3 @@
-#include <iostream>
 #define MAXSIZE 100 // 表最大长度
 #define KeyType int
 #define InfoType char
@@ -46,7 +45,8 @@ int Search_Seq(SSTable ST, KeyType key)
 { // 算法7.2 设置监视哨的顺序查找
     int i;
     ST.R[0].key = key;
-    for (i = ST.length; ST.R[i].key != key; --i);
+    for (i = ST.length; ST.R[i].key != key; --i)
+        ;
     return i;
 }
 
