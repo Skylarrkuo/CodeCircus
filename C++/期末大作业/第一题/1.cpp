@@ -52,18 +52,20 @@ int main()
     ElemType b[5] = {2, 4, 6, 8, 10};
     SqList La, Lb, Lc;
     La.elem = a;
-    La.length=5;
+    La.length = 5;
     Lb.elem = b;
-    Lb.length=5;
+    Lb.length = 5;
     InitList(&Lc);
 
-    //合并
-    if(La.elem[0])
-    for(int i=0,j=0;i<La.length+Lb.length;i++){
-        if(La.elem[j].data<Lb.elem[j].data){
-            Lc.elem[i]=La.elem[j];
-            j++;
+    // 合并
+    if (La.elem[0])
+        for (int i = 0, j = 0; i < La.length + Lb.length; i++)
+        {
+            if (La.elem[j].data < Lb.elem[j].data)
+            {
+                Lc.elem[i] = La.elem[j];
+                j++;
+            }
         }
-    }
     return 0;
 }
