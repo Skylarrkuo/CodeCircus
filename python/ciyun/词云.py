@@ -1,19 +1,20 @@
 """
 算法:生成政府工作报告词云
-输入:政府工作报告文本(gov.txt),词云形状遮罩图片(guohui.jpg),中文字体文件路径
+输入:政府工作报告文本(gov.txt),词云形状遮罩图片(guohui.jpg),停用词文件路径(stopwords.txt),中文字体文件路径
 输出:保存的词云图像文件(wcloudzf.png)
 
-1. 引入分词库jieba,词云库wordcloud,图像处理库PIL,多维数组库numpy.
-2. 读取用于生成词云的背景图片,存储为BColor数组.
-3. 打开文本文件gov.txt,读取其中的文本内容.
-4. 使用jieba进行中文分词,生成词列表ls.
-5. 将分词结果拼接为字符串txt.
-6. 设置停用词stopwords,过滤无用词汇
-7. 配置词云生成器w,设置背景颜色,最大词数,词云形状,最大字体大小,随机种子,中文字体和停用词.
-8. 生成词云w,使用generate方法.
-9. 生成颜色映射器image_colors,用BColor进行初始化.
-10. 对词云图进行重新着色,使用recolor方法和颜色映射器image_colors.
-11. 将生成的词云保存为图片文件wcloudzf.png.
+1. 引入 jieba,wordcloud,PIL,numpy 库
+2. 读取用于生成词云的图片为 BColor
+3. 打开并读取文本文件 gov.txt 到变量 t
+4. 打开并读取停用词文本文件 stopwords.txt 到变量 stop
+5. 对文本进行分词,将分词结果连接成字符串 txt
+6. 过滤长度为1的词和标点,得到新的分词列表 newls
+7. 设置停用词集合 stopwords,更新为包含 stop 的集合
+8. 配置词云生成器 w,设置相关参数
+9. 生成词云 w,并使用 BColor 作为形状遮罩
+10. 生成颜色映射器 image_colors
+11. 使用颜色映射器重新着色词云图 w
+12. 将生成的词云保存为图片文件 wcloudzf.png
 """
 # 引入词频统计库
 import collections
@@ -37,7 +38,7 @@ BColor = numpy.array(Image.open("gz.png"))
 fi = open("三国演义.txt", encoding="utf-8")
 t = fi.read()
 fi.close()
-
+# 打开并读取停用词文本文件
 fi = open("stopwords.txt", encoding="utf-8")
 stop = fi.read()
 fi.close()
@@ -45,7 +46,7 @@ fi.close()
 ls = jieba.lcut(t)
 txt = " ".join(ls)
 
-# 去掉长度为1的词，包括标点
+# 去掉长度为1的词,包括标点
 newls = []
 for i in ls:
     if len(i) > 1:

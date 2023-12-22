@@ -27,16 +27,20 @@ void CreatSqList(SqList &L, int n)
     }
     L.length = n;
 }
-void BackSqList(SqList &L,SqList &back){
-    //备份线性表
-    for (int i = 0; i <= L.length;++i){
+void BackSqList(SqList &L, SqList &back)
+{
+    // 备份线性表
+    for (int i = 0; i <= L.length; ++i)
+    {
         back.elem[i].data = L.elem[i].data;
     }
 }
-void BackP(SqList &L,SqList &back){
-    //恢复备份线性表
-    for (int i = 0; i <= L.length;++i){
-         L.elem[i].data=back.elem[i].data;
+void BackP(SqList &L, SqList &back)
+{
+    // 恢复备份线性表
+    for (int i = 0; i <= L.length; ++i)
+    {
+        L.elem[i].data = back.elem[i].data;
     }
 }
 //====================================
@@ -66,9 +70,9 @@ Status BubbleSort(SqList &L)
     int i, j;
     for (i = 1; i < L.length; ++i)
     {
-        for (j = i; j <= L.length - i; ++j)
+        for (j = 1; j <= L.length - i; ++j)
         {
-            if (L.elem[j].data > L.elem[j].data)
+            if (L.elem[j].data > L.elem[j + 1].data)
             {
                 L.elem[0].data = L.elem[j].data;
                 L.elem[j].data = L.elem[j + 1].data;

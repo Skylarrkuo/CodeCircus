@@ -20,8 +20,6 @@ int main()
         cout << "|4.Ë³Ğò±íÃ°ÅİÅÅĞò \t |" << endl;
         cout << "|5.Ë³Ğò±íÖ±½Ó²åÈëÅÅĞò\t |" << endl;
         cout << "|6.Ë³Ğò±íÕÛ°ë²åÈëÅÅĞò\t |" << endl;
-        cout << "|7.Ë³Ğò±íÏ£¶ûÔöÁ¿ÅÅĞò\t |" << endl;
-        cout << "|8.\t |" << endl;
         cout << "|0.ÍË³ö³ÌĞò\t\t |" << endl;
         cout << "==========================" << endl;
         cout << "ÊäÈëÊı×ÖÑ¡Ôñ²Ù×÷:";
@@ -74,12 +72,6 @@ int main()
             for (i = 1; i <= L.length; i++)
                 cout << L.elem[i].data << " ";
             cout << endl;
-            break;
-        case 7:
-
-            break;
-
-        case 8:
             break;
         }
         system("pause");
