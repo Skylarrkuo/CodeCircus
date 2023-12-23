@@ -10,3 +10,10 @@
 {'优秀':2,'良好':4,'中等':4,'及格':0,'不及格':2}
 
 '''
+level={'优秀':0,'良好':0,'中等':0,'及格':0,'不及格':0}
+num=[]
+num=list(input())
+while id in range(num):
+    if(i in level):
+        level[i]+=1
+print(level)
