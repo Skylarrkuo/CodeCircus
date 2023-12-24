@@ -14,27 +14,24 @@ cat
 24
 '''
 
-# 这是一个用于检索字符串s1中指定字符串s2的代码
-# 该程序会输出所有匹配字符串的起始字符位置
-
 # 获取输入的两个字符串s1和s2
-s1 = input("输入第一个字符串：")
-s2 = input("输入第二个字符串：")
+s1 = input()
+s2 = input()
 
 # 初始化起始位置为0
-start_pos = 0
+start = 0
 
 # 使用while循环来查找匹配字符串的起始字符位置
-while start_pos < len(s1):
+while start < len(s1):
     # 使用find()函数来寻找字符串s2在s1中的位置
-    pos = s1.find(s2, start_pos)
+    pos = s1.find(s2, start)
     
     # 如果找到了匹配的字符串
     if pos != -1:
         # 将匹配字符串的起始位置打印出来
         print(pos)
         # 更新起始位置，以便下一轮循环从当前位置之后开始搜索
-        start_pos = pos + 1
+        start = pos + 1
     else:
         # 如果没有找到匹配的字符串，则结束循环
         break

@@ -1,0 +1,5 @@
+This is the first line of the file.
+The second line contains some more English text.
+Here's another line for testing purposes.
+Perhaps a fourth line would be helpful.
+And finally, the fifth line concludes the sample text.
