@@ -1,4 +1,104 @@
-/*2ï¼å·²çŸ¥æ•°æ®å…ƒç´ åºåˆ—ä¸º{45ï¼Œ12ï¼Œ3ï¼Œ37ï¼Œ65ï¼Œ51ï¼Œ32ï¼Œ48ï¼Œ95ï¼Œ100ï¼Œ69ï¼Œ90 }ã€‚
-è¦æ±‚ï¼š
-ï¼ˆ1ï¼‰æŒ‰å„æ•°æ®å…ƒç´ çš„å¤§å°é¡ºåºæ„é€ ä¸€æ£µäºŒå‰æ’åºæ ‘ï¼Œå¹¶ä¸­åºæ‰“å°æ’åºç»“æœã€‚
-ï¼ˆ2ï¼‰æŸ¥æ‰¾æ•°æ®â€œ100â€æ˜¯å¦å­˜åœ¨ã€‚*/
+/*2£®ÒÑÖªÊı¾İÔªËØĞòÁĞÎª{45£¬12£¬3£¬37£¬65£¬51£¬32£¬48£¬95£¬100£¬69£¬90 }¡£
+ÒªÇó£º
+£¨1£©°´¸÷Êı¾İÔªËØµÄ´óĞ¡Ë³Ğò¹¹ÔìÒ»¿Ã¶ş²æÅÅĞòÊ÷£¬²¢ÖĞĞò´òÓ¡ÅÅĞò½á¹û¡£
+£¨2£©²éÕÒÊı¾İ¡°100¡±ÊÇ·ñ´æÔÚ¡£*/
+#include <iostream>
+#define MAXSIZE 100 // ±í×î´ó³¤¶È
+#define KeyType int
+#define InfoType char
+#define ENDFLAG 0
+using namespace std;
+
+//=======´æ´¢½á¹¹=================
+typedef struct
+{ // Êı¾İÔªËØÏî
+    KeyType key;
+} ElemType;
+
+typedef struct BSTNode
+{ // ¶ş²æÅÅĞòÊ÷µÄ¶ş²æÁ´±í´æ´¢±íÊ¾
+    ElemType date;
+    struct BSTNode *lchild;
+    struct BSTNode *rchild;
+} BSTNode, *BSTree;
+
+//========Ê÷²éÕÒ²Ù×÷================
+void InitBSTree(BSTree &T)
+{
+    // ¹¹½¨¿Õ¶ş²æÅÅĞòÊ÷
+    T = new BSTNode;
+    T->lchild = NULL;
+    T->rchild = NULL;
+}
+
+void InsertBST(BSTree &T, ElemType e)
+{ // Ëã·¨7.5 ¶ş²æÅÅĞòÊ÷µÄ²åÈë
+    if (!T)
+    {
+        BSTree S = new BSTNode;
+        S->date = e;
+        S->lchild = S->rchild = NULL;
+        T = S;
+    }
+    else if (e.key < T->date.key)
+        InsertBST(T->lchild, e);
+    else if (e.key > T->date.key)
+        InsertBST(T->rchild, e);
+}
+
+void CreatBST(BSTree &T)
+{ // Ëã·¨7.6 ¶ş²æÅÅĞòÊ÷µÄ´´½¨
+    T = NULL;
+    ElemType e;
+    cin >> e.key;
+    while (e.key != ENDFLAG)
+    {
+        InsertBST(T, e);
+        cin >> e.key;
+    }
+}
+
+// ÖĞĞò±éÀúµÄµİ¹éËã·¨
+void InOrderTraverse(BSTree T)
+{
+    if (T)
+    {
+        InOrderTraverse(T->lchild);
+        cout << T->date.key << " ";
+        InOrderTraverse(T->rchild);
+    }
+}
+
+BSTree SearchBST(BSTree T, KeyType key)
+{ // Ëã·¨7.4 ¶ş²æÅÅĞòÊ÷µÄµİ¹é²éÕÒ
+    if ((!T) || key == T->date.key)
+        return T;
+    else if (key < T->date.key)
+        return SearchBST(T->lchild, key);
+    else
+        return SearchBST(T->rchild, key);
+}
+
+//===Ö÷º¯Êı=======================
+int main()
+{
+    int n, key;
+    // ´´½¨¿Õ¶ş²æÅÅĞòÊ÷
+    BSTree T;
+    InitBSTree(T);
+    // ´´½¨¶ş²æÅÅĞòÊı
+    cout << "°´Ë³ĞòÊäÈëÔªËØ,ÓÃ¿Õ¸ñ¸ô¿ª,ÒÔ0½áÊø´´½¨:" << endl;
+    cout << ">>:";
+    CreatBST(T);
+    cout << "ÖĞĞòÊä³ö´´½¨½á¹û:" << endl;
+    InOrderTraverse(T);
+    cout << endl;
+    // ¶ş²æÅÅĞòÊ÷µÄµİ¹é²éÕÒ
+    cout << "ÊäÈëÒª²éÕÒµÄ¹Ø¼ü×Ö:";
+    cin >> key;
+    if (!SearchBST(T, key))
+        cout << "²éÕÒÊ§°Ü!!" << endl;
+    else
+        cout << "²éÕÒ³É¹¦~¸ÃÊı¾İ´æÔÚ" << endl;
+    return 0;
+}

@@ -1,23 +1,23 @@
-/*å·²çŸ¥ w={5,29,7,8,14,23,3,11}ï¼Œåˆ©ç”¨ç›¸åº”ç®—æ³•è¯•æ„é€ ä¸€æ£µå“ˆå¤«æ›¼æ ‘ï¼Œå¹¶è¾“å‡º
-å…¶æ„é€ è¿‡ç¨‹ä¸­å­˜å‚¨ç»“æ„çš„ç»ˆç»“çŠ¶æ€ã€‚*/
+/*ÒÑÖª w={5,29,7,8,14,23,3,11}£¬ÀûÓÃÏàÓ¦Ëã·¨ÊÔ¹¹ÔìÒ»¿Ã¹ş·òÂüÊ÷£¬²¢Êä³ö
+Æä¹¹Ôì¹ı³ÌÖĞ´æ´¢½á¹¹µÄÖÕ½á×´Ì¬¡£*/
 
 #include <iostream>
 using namespace std;
 
-// å®šä¹‰å“ˆå¤«æ›¼æ ‘ç»“ç‚¹ç»“æ„ä½“
+// ¶¨Òå¹ş·òÂüÊ÷½áµã½á¹¹Ìå
 typedef struct
 {
-    int weight;                 // æƒé‡
-    int parent, lchild, rchild; // åŒäº²,å·¦å­©å­,å³å­©å­çš„ç´¢å¼•
+    int weight;                 // È¨ÖØ
+    int parent, lchild, rchild; // Ë«Ç×,×óº¢×Ó,ÓÒº¢×ÓµÄË÷Òı
 } HTNode, *HuffmanTree;
 
-// åœ¨æ•°ç»„HTä¸­é€‰æ‹©ä¸¤ä¸ªparentä¸º0ä¸”æƒå€¼æœ€å°çš„ç»“ç‚¹,å…¶ç´¢å¼•åˆ†åˆ«ä¸ºs1å’Œs2
+// ÔÚÊı×éHTÖĞÑ¡ÔñÁ½¸öparentÎª0ÇÒÈ¨Öµ×îĞ¡µÄ½áµã,ÆäË÷Òı·Ö±ğÎªs1ºÍs2
 void Select(HuffmanTree &HT, int end, int &s1, int &s2)
 {
     int min1, min2;
-    // åˆå§‹åŒ–æœ€å°å’Œæ¬¡å°æƒé‡
+    // ³õÊ¼»¯×îĞ¡ºÍ´ÎĞ¡È¨ÖØ
     min1 = min2 = INT_MAX;
-    // åˆå§‹åŒ–æœ€å°å’Œæ¬¡å°æƒé‡å¯¹åº”çš„ç´¢å¼•
+    // ³õÊ¼»¯×îĞ¡ºÍ´ÎĞ¡È¨ÖØ¶ÔÓ¦µÄË÷Òı
     s1 = s2 = 0;
     for (int i = 1; i <= end; ++i)
     {
@@ -39,12 +39,12 @@ void Select(HuffmanTree &HT, int end, int &s1, int &s2)
     }
 }
 
-// æ„é€ å“ˆå¤«æ›¼æ ‘HT
+// ¹¹Ôì¹ş·òÂüÊ÷HT
 void CreateHuffmanTree(HuffmanTree &HT, int n)
 {
     if (n <= 1)
         return;
-    int m = 2 * n - 1; // å“ˆå¤«æ›¼æ ‘æ€»ç»“ç‚¹æ•°
+    int m = 2 * n - 1; // ¹ş·òÂüÊ÷×Ü½áµãÊı
     HT = new HTNode[m + 1];
     for (int i = 1; i <= m; i++)
     {
@@ -53,35 +53,35 @@ void CreateHuffmanTree(HuffmanTree &HT, int n)
         HT[i].rchild = 0;
     }
     for (int i = 1; i <= n; ++i)
-        cin >> HT[i].weight; // è¾“å…¥å¶å­ç»“ç‚¹çš„æƒå€¼
+        cin >> HT[i].weight; // ÊäÈëÒ¶×Ó½áµãµÄÈ¨Öµ
     for (int i = n + 1; i <= m; ++i)
-    { // é€šè¿‡n-1æ¬¡çš„é€‰æ‹©,åˆ é™¤,åˆå¹¶æ¥åˆ›å»ºå“ˆå¤«æ›¼æ ‘
+    { // Í¨¹ın-1´ÎµÄÑ¡Ôñ,É¾³ı,ºÏ²¢À´´´½¨¹ş·òÂüÊ÷
         int s1, s2;
-        Select(HT, i - 1, s1, s2); // é€‰æ‹©æƒå€¼æœ€å°å’Œæ¬¡å°çš„ä¸¤ä¸ªç»“ç‚¹
+        Select(HT, i - 1, s1, s2); // Ñ¡ÔñÈ¨Öµ×îĞ¡ºÍ´ÎĞ¡µÄÁ½¸ö½áµã
         HT[s1].parent = i;
         HT[s2].parent = i;
         HT[i].lchild = s1;
         HT[i].rchild = s2;
-        HT[i].weight = HT[s1].weight + HT[s2].weight; // æ–°ç»“ç‚¹çš„æƒå€¼ä¸ºå·¦å³å­©å­æƒå€¼ä¹‹å’Œ
+        HT[i].weight = HT[s1].weight + HT[s2].weight; // ĞÂ½áµãµÄÈ¨ÖµÎª×óÓÒº¢×ÓÈ¨ÖµÖ®ºÍ
     }
 }
 
 int main()
 {
     HuffmanTree HT;
-    int n; // å‡è®¾æœ‰5ä¸ªå¶å­èŠ‚ç‚¹
-    cout << "è¾“å…¥å¶å­èŠ‚ç‚¹æ•°:";
+    int n; // ¼ÙÉèÓĞ5¸öÒ¶×Ó½Úµã
+    cout << "ÊäÈëÒ¶×Ó½ÚµãÊı:";
     cin >> n;
-    cout << "è¾“å…¥" << n << "ä¸ªå¶å­èŠ‚ç‚¹çš„æƒ:";
+    cout << "ÊäÈë" << n << "¸öÒ¶×Ó½ÚµãµÄÈ¨:";
     CreateHuffmanTree(HT, n);
-    cout << "æ„å»ºå“ˆå¤«æ›¼æ ‘çš„ç»“æœ:";
-        // æ‰“å°å“ˆå¤«æ›¼æ ‘çš„ç»“æœ
+    cout << "¹¹½¨¹ş·òÂüÊ÷µÄ½á¹û:";
+        // ´òÓ¡¹ş·òÂüÊ÷µÄ½á¹û
         for (int i = 1; i <= 2 * n - 1; ++i)
     {
         cout << "Index: " << i << ", Weight: " << HT[i].weight << ", Parent: " << HT[i].parent << ", Left Child: " << HT[i].lchild << ", Right Child: " << HT[i].rchild << endl;
     }
 
-    delete[] HT; // é‡Šæ”¾å†…å­˜
+    delete[] HT; // ÊÍ·ÅÄÚ´æ
 
     return 0;
 }

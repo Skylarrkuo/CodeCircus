@@ -1,8 +1,8 @@
-/*1ï¼Žå·²çŸ¥çº¿æ€§è¡¨ La å’Œ Lb ä¸­çš„æ•°æ®å…ƒç´ æŒ‰å€¼éžé€’å‡æœ‰åºæŽ’åˆ—ï¼ŒçŽ°è¦æ±‚å°† La å’Œ Lb
-å½’å¹¶ä¸ºä¸€ä¸ªæ–°çš„çº¿æ€§è¡¨ Lcï¼Œä¸” Lc ä¸­çš„æ•°æ®å…ƒç´ ä»æŒ‰å€¼éžé€’å‡æœ‰åºæŽ’åˆ—ã€‚ä¾‹å¦‚ï¼š
+/*1£®ÒÑÖªÏßÐÔ±í La ºÍ Lb ÖÐµÄÊý¾ÝÔªËØ°´Öµ·ÇµÝ¼õÓÐÐòÅÅÁÐ£¬ÏÖÒªÇó½« La ºÍ Lb
+¹é²¢ÎªÒ»¸öÐÂµÄÏßÐÔ±í Lc£¬ÇÒ Lc ÖÐµÄÊý¾ÝÔªËØÈÔ°´Öµ·ÇµÝ¼õÓÐÐòÅÅÁÐ¡£ÀýÈç£º
 La=(1,2,3,4,5) Lb=(2, 4, 6, 8, 10)
-åˆå¹¶ä¹‹åŽï¼šLc=(1, 2, 2, 3, 4 ,4, 5,6,8, 10) */
-#define MAXSIZE 100 // çº¿æ€§è¡¨æœ€å¤§é•¿åº¦
+ºÏ²¢Ö®ºó£ºLc=(1, 2, 2, 3, 4 ,4, 5,6,8, 10) */
+#define MAXSIZE 100 // ÏßÐÔ±í×î´ó³¤¶È
 #define OK 1
 #define ERROR 0
 #define OVERFLOW (-1)
@@ -12,19 +12,19 @@ using namespace std;
 
 typedef int Status;
 typedef struct ElemType
-{ // å£°æ˜Žæ•°æ®å…ƒç´ çš„ç»“æž„ä½“
+{ // ÉùÃ÷Êý¾ÝÔªËØµÄ½á¹¹Ìå
     int data;
 } ElemType;
 
 typedef struct
-{ // å£°æ˜Žçº¿æ€§è¡¨æ“ä½œå™¨
+{ // ÉùÃ÷ÏßÐÔ±í²Ù×÷Æ÷
     ElemType *elem;
     int length;
 } SqList;
 
 Status InitList(SqList *L)
 {
-    // æž„å»ºçº¿æ€§è¡¨
+    // ¹¹½¨ÏßÐÔ±í
     L->elem = new ElemType[MAXSIZE];
     if (!L->elem)
         return ERROR;
@@ -34,7 +34,7 @@ Status InitList(SqList *L)
 
 Status MegerList(SqList &La, SqList &Lb, SqList &Lc)
 {
-    // å½’å¹¶çº¿æ€§è¡¨
+    // ¹é²¢ÏßÐÔ±í
     int i, j, k;
     for (i = 0, j = 0, k = 0; i < La.length || j < Lb.length; k++, Lc.length++)
     {
@@ -61,11 +61,11 @@ Status MegerList(SqList &La, SqList &Lb, SqList &Lc)
 int main()
 {
     int i, j, k;
-    // è‡ªå®šä¹‰æ•°æ®
+    // ×Ô¶¨ÒåÊý¾Ý
     ElemType a[5] = {1, 2, 3, 4, 5};
     ElemType b[5] = {2, 4, 6, 8, 10};
 
-    // åˆå§‹åŒ–ä¸‰ä¸ªçº¿æ€§è¡¨
+    // ³õÊ¼»¯Èý¸öÏßÐÔ±í
     SqList La, Lb, Lc;
     La.elem = a;
     La.length = 5;
@@ -73,7 +73,7 @@ int main()
     Lb.length = 5;
     InitList(&Lc);
 
-    // è¾“å‡ºLaå’ŒLb
+    // Êä³öLaºÍLb
     cout << "La= ";
     for (i = 0; i < La.length; i++){
         printf("%d ", La.elem[i].data);
@@ -85,10 +85,10 @@ int main()
         printf("%d ", Lb.elem[i].data);
     }
 
-    // å½’å¹¶
+    // ¹é²¢
     MegerList(La, Lb, Lc);
 
-    // è¾“å‡ºå½’å¹¶åŽçš„Lc
+    // Êä³ö¹é²¢ºóµÄLc
     cout << "\nLc= ";
     for (i = 0; i < Lc.length; i++){
         printf("%d ", Lc.elem[i].data);
