@@ -1,2 +1,202 @@
-/*1ï¼ä½¿ç”¨é‚»æ¥çŸ©é˜µæˆ–è€…é‚»æ¥è¡¨åˆ›å»ºä¸€ä¸ªå¦‚ä¸‹æ‰€ç¤ºçš„æ— å‘å›¾ï¼Œå¹¶é‡‡ç”¨æ·±åº¦ä¼˜å…ˆæœç´¢
-å’Œå¹¿åº¦ä¼˜å…ˆæœç´¢ 2 ç§éå†ç®—æ³•å¯¹å›¾è¿›è¡Œéå†ã€‚*/
+/*1£®Ê¹ÓÃÁÚ½Ó¾ØÕó»òÕßÁÚ½Ó±í´´½¨Ò»¸öÈçÏÂËùÊ¾µÄÎŞÏòÍ¼,²¢²ÉÓÃÉî¶ÈÓÅÏÈËÑË÷
+ºÍ¹ã¶ÈÓÅÏÈËÑË÷ 2 ÖÖ±éÀúËã·¨¶ÔÍ¼½øĞĞ±éÀú.*/
+#include <iostream>
+using namespace std;
+
+#define OK 1;
+#define MVNum 100
+#define MaxInt 32767
+#define MAXSIZE 100
+#define ERROR 0
+typedef int VerTex;
+typedef char VerTexType;
+typedef int ArcTypr;
+typedef int Status;
+
+//=====¶ÓÁĞ===========
+typedef struct{
+    VerTex date;
+} QElemType;
+
+typedef struct{
+    QElemType *base;
+    int front;
+    int rear;
+} SqQueue;
+
+Status InitQueue(SqQueue &Q){
+    // ³õÊ¼»¯¶ÓÁĞ
+    Q.base = new QElemType[MAXSIZE];
+    if (!Q.base)
+        return ERROR;
+    Q.front = 0;
+    Q.rear = 0;
+    return OK;
+}
+
+Status DestroyQueue(SqQueue &Q){
+    // Ïú»Ù¶ÓÁĞ
+    if (!Q.base)
+        return ERROR;
+    delete[] Q.base;
+    Q.front = Q.rear = 0;
+    return OK;
+}
+
+Status QueueEmpty(SqQueue Q){
+    // ¶ÓÁĞÅĞ¿Õ
+    if (!Q.base)
+        return ERROR;
+    if (Q.front == Q.rear)
+        return true;
+    else
+        return false;
+}
+
+Status EnQueue(SqQueue &Q, QElemType &e){
+    // Èë¶Ó
+    if (!Q.base)
+        return ERROR;
+    Q.base[Q.rear % MAXSIZE] = e;
+    Q.rear++;
+    return OK;
+}
+
+Status DeQueue(SqQueue &Q, QElemType &e){
+    // ³ö¶Ó
+    if (!Q.base)
+        return ERROR;
+    e = Q.base[Q.front];
+    Q.front++;
+    return 0;
+}
+
+//===ÁÚ½Ó¾ØÕó=================================
+// ÁÚ½Ó¾ØÕóÎŞÏòÍ¼´æ´¢½á¹¹
+typedef struct{
+    bool visited[MVNum];
+    VerTexType vexs[MVNum];
+    ArcTypr arcs[MVNum][MVNum];
+    int vexnum = 0, arcnum = 0;
+} AMGraph;
+
+// ÁÚ½Ó¾ØÕóµÄ²éÕÒ¶¥µãÎ»ÖÃ
+Status LocateVex(AMGraph G, VerTexType v){
+    int k;
+    for (k = 1; k <= G.vexnum; k++)
+    {
+        if (G.vexs[k] == v)
+            break;
+    }
+    if (k > G.vexnum)
+        return -1;
+    return k;
+}
+
+// ¹¹ÔìÁÚ½Ó¾ØÕóÎŞÏòÍ¼
+Status CreateUDN(AMGraph &G){
+    char v1, v2;
+    int i, j, k, w;
+    cout << "ÊäÈëÎŞÏòÍ¼µÄ¶¥µãÊı¸öÊıºÍ±ßÊı,ÓÃ¿Õ¸ñ¸ô¿ª:";
+    cin >> G.vexnum >> G.arcnum;
+    cout << "ÊäÈë" << G.vexnum << "¸ö¶¥µã:";
+    for (k = 1; k <= G.arcnum; k++){
+        cin >> G.vexs[k];
+    }
+    // ¹¹ÔìÁÚ½Ó¾ØÕó
+    for (i = 1; i <= G.vexnum; i++){
+        for (j = 1; j <= G.vexnum; j++){
+            G.arcs[i][j] = MaxInt;
+        }
+    }
+
+    for (k = 1; k <= G.arcnum; k++){
+        cout << "ÊäÈëµÚ" << k << "Ìõ±ßÒÀ¸½µÄµÄ¶¥µã¼°È¨Öµ:";
+        cin >> v1 >> v2 >> w;
+        i = LocateVex(G, v1);
+        j = LocateVex(G, v2);
+        G.arcs[i][j] = w;
+        G.arcs[j][i] = w;
+    }
+    return OK;
+}
+
+// Êä³öÁÚ½Ó¾ØÕóÎŞÏòÍ¼
+Status InputAMGraph(AMGraph G){
+    int i, j, k;
+    cout << "ÁÚ½Ó¾ØÕóÎŞÏòÍ¼µÄ¶¥µãÓĞ:" << endl;
+    for (k = 1; k <= G.vexnum; k++){
+        printf("%c ", G.vexs[k]);
+    }
+    cout << endl;
+    cout << "ÁÚ½Ó¾ØÕóÎ»:" << endl;
+    for (i = 1; i <= G.vexnum; i++){
+        printf("|");
+        for (j = 1; j <= G.vexnum; j++){
+            printf("%d\t", G.arcs[i][j]);
+        }
+        printf("|\n");
+    }
+    return OK;
+}
+// Çå¿ÕÁÚ½Ó±í¶¥µã·ÃÎÊ±êÖ¾
+Status ClearAMvisited(AMGraph &G){
+    for (int i = 0; i <= G.vexnum; i++){
+        G.visited[i] = false;
+    }
+    return OK;
+}
+// ÁÚ½Ó¾ØÕóÉî¶ÈÓÅÏÈ±éÀú(µİ¹é)
+Status DFS_AM(AMGraph &G, int v){
+    // GÎªÁÚ½Ó¾ØÕó,´ÓµÚv¸ö¶¥µã³öÉî¶ÈÓÅÏÈËÑË÷±éÀú
+    cout << G.vexs[v];
+    G.visited[v] = true;
+    for (int w = 0; w <= G.vexnum; w++){
+        if ((G.arcs[v][w] != MaxInt) && (!G.visited[w]))
+            DFS_AM(G, w);
+    }
+    return OK;
+}
+
+// ÁÚ½Ó¾ØÕó¹ã¶ÈÓÅÏÈ±éÀú
+Status BFS_AM(AMGraph G, int v){
+    SqQueue Q;           // ´´½¨Ò»¸ö¶ÓÁĞQ
+    InitQueue(Q);        // ³õÊ¼»¯¶ÓÁĞQ
+    cout << G.vexs[v];   // Êä³öÆğÊ¼¶¥µãµÄÊı¾İÔªËØ
+    G.visited[v] = true; // ±ê¼ÇÆğÊ¼¶¥µãÎªÒÑ·ÃÎÊ
+    QElemType e;
+    e.date = v;
+    EnQueue(Q, e);         // ÆğÊ¼¶¥µãÈë¶Ó
+    while (!QueueEmpty(Q)){ // Ñ­»·Ö±µ½¶ÓÁĞÎª¿Õ
+        int w;
+        DeQueue(Q, e); // ³ö¶ÓÒ»¸ö¶¥µã
+        w = e.date;
+        for (int i = 1; i <= G.vexnum; i++){ // ±éÀúËùÓĞ¶¥µã
+            if (G.arcs[w][i] != MaxInt && !G.visited[i]){ // Èç¹û¶¥µãwÓë¶¥µãiÓĞ±ßÇÒ¶¥µãiÎ´±»·ÃÎÊ¹ı
+                cout << G.vexs[i];   // Êä³ö¶¥µãiµÄÊı¾İÔªËØ
+                G.visited[i] = true; // ±ê¼Ç¶¥µãiÎªÒÑ·ÃÎÊ
+                e.date = i;
+                EnQueue(Q, e); // ¶¥µãiÈë¶Ó
+            }
+        }
+    }
+    DestroyQueue(Q); // Ïú»Ù¶ÓÁĞQ
+    return OK;
+}
+
+//=====Ö÷º¯Êı=========
+int main()
+{
+    AMGraph amGraph; // ÁÚ½Ó¾ØÕó
+    cout << "¶¨Òå: v1 = a ,v2 = b ,v3 = c ,v4 = d ,¿É´ïÈ¨ÖµÄ¬ÈÏ100" << endl;
+    CreateUDN(amGraph);    // µ÷ÓÃÁÚ½Ó¾ØÕó´´½¨ÎŞÏòÍ¼º¯Êı
+    InputAMGraph(amGraph); // Êä³öÁÚ½Ó¾ØÕóÎŞÏòÍ¼
+    cout << "ÁÚ½Ó¾ØÕóÉî¶ÈÓÅÏÈ±éÀúĞòÁĞÎª:" << endl;
+    ClearAMvisited(amGraph); // Çå¿ÕÁÚ½Ó¾ØÕó¶¥µã·ÃÎÊ±êÖ¾
+    DFS_AM(amGraph, 1);      // µ÷ÓÃÁÚ½Ó¾ØÕóÉî¶ÈÓÅÏÈ±éÀúº¯Êı
+    cout << endl;
+    cout << "ÁÚ½Ó¾ØÕó¹ã¶ÈÓÅÏÈ±éÀúĞòÁĞÎª:" << endl;
+    ClearAMvisited(amGraph); // Çå¿ÕÁÚ½Ó¾ØÕó¶¥µã·ÃÎÊ±êÖ¾
+    BFS_AM(amGraph, 1);      // µ÷ÓÃÁÚ½Ó¾ØÕó¹ã¶ÈÓÅÏÈ±éÀúº¯Êı
+    return 0;
+}

@@ -1,6 +1,8 @@
 typedef int VerTex;
 using namespace std;
 typedef int Status;
+
+//=====队列===========
 typedef struct
 {
     VerTex date;

@@ -22,7 +22,6 @@ typedef struct
     int length;
 } SqList;
 
-// 12种操作
 Status InitList(SqList *L)
 {
     // 构建线性表
@@ -32,24 +31,41 @@ Status InitList(SqList *L)
     L->length = 0;
     return OK;
 }
-Status ListInsert(SqList &L, int i, ElemType e)
+
+Status MegerList(SqList &La, SqList &Lb, SqList &Lc)
 {
-    // 在线性表L的i位置前插入元素e
-    if (!L.elem && L.length == MAXSIZE) // 判断表是否存在以及是否有空间
-        return ERROR;
-    else
-        for (int j = L.length - 1; j > i; j--)
-            L.elem[j] = L.elem[j - 1];
-    L.elem[i] = e;
-    ++L.length;
+    // 归并线性表
+    int i, j, k;
+    for (i = 0, j = 0, k = 0; i < La.length || j < Lb.length; k++, Lc.length++)
+    {
+        if (i >= La.length){
+            Lc.elem[k] = Lb.elem[j];
+            j++;
+        }
+        else if (j >= Lb.length){
+            Lc.elem[k] = La.elem[i];
+            i++;
+        }
+        else if (La.elem[i].data < Lb.elem[j].data){
+            Lc.elem[k] = La.elem[i];
+            i++;
+        }
+        else{
+            Lc.elem[k] = Lb.elem[j];
+            j++;
+        }
+    }
     return OK;
 }
 
 int main()
 {
-    ElemType temp;
+    int i, j, k;
+    // 自定义数据
     ElemType a[5] = {1, 2, 3, 4, 5};
     ElemType b[5] = {2, 4, 6, 8, 10};
+
+    // 初始化三个线性表
     SqList La, Lb, Lc;
     La.elem = a;
     La.length = 5;
@@ -57,15 +73,26 @@ int main()
     Lb.length = 5;
     InitList(&Lc);
 
-    // 合并
-    if (La.elem[0])
-        for (int i = 0, j = 0; i < La.length + Lb.length; i++)
-        {
-            if (La.elem[j].data < Lb.elem[j].data)
-            {
-                Lc.elem[i] = La.elem[j];
-                j++;
-            }
-        }
+    // 输出La和Lb
+    cout << "La= ";
+    for (i = 0; i < La.length; i++){
+        printf("%d ", La.elem[i].data);
+    }
+
+    cout << "\nLb= ";
+
+    for (i = 0; i < Lb.length; i++){
+        printf("%d ", Lb.elem[i].data);
+    }
+
+    // 归并
+    MegerList(La, Lb, Lc);
+
+    // 输出归并后的Lc
+    cout << "\nLc= ";
+    for (i = 0; i < Lc.length; i++){
+        printf("%d ", Lc.elem[i].data);
+    }
+
     return 0;
 }
