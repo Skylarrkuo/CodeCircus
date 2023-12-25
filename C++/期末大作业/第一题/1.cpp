@@ -78,13 +78,10 @@ int main()
     for (i = 0; i < La.length; i++){
         printf("%d ", La.elem[i].data);
     }
-
     cout << "\nLb= ";
-
     for (i = 0; i < Lb.length; i++){
         printf("%d ", Lb.elem[i].data);
     }
-
     // ¹é²¢
     MegerList(La, Lb, Lc);
 

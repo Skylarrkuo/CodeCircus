@@ -82,6 +82,5 @@ int main()
     }
 
     delete[] HT; // ÊÍ·ÅÄÚ´æ
-
     return 0;
 }
