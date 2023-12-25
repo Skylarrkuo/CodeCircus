@@ -1,118 +1,48 @@
-section .data
-    input_file db 'input.txt',0
-    output_file_enc db 'output_encrypted.txt',0
-    output_file_dec db 'output_decrypted.txt',0
-    key db 'mysecretkey',0
+; 汇编语言程序：计算BMI值
 
-section .text
-    global _start
+assume cs:code
+data segment
+    weight dw 0  ; 体重，单位：kg
+    height dw 0  ; 身高，单位：cm
+    bmi dw 0     ; 存储计算结果的变量
+data ends
 
-_start:
-    ; 加密
-    mov eax, 0
-    mov ebx, input_file
-    mov ecx, key
-    mov edx, output_file_enc
-    call encrypt_file
+code segment
+start:
+    ; 初始化数据段寄存器
+    mov bx, data
+    mov ds, bx
 
-    ; 解密
-    mov eax, 0
-    mov ebx, output_file_enc
-    mov ecx, key
-    mov edx, output_file_dec
-    call decrypt_file
+    ; 从用户输入获取体重和身高
+    call GetInput
+
+    ; 将身高转换为米，计算BMI
+    mov ax, height
+    mov bx, 100  ; 将身高转换为米
+    div bx      ; AX = height / 100
+    mov height, ax
+
+    ; 计算BMI：weight / (height * height)
+    mov ax, weight
+    imul ax, height
+    imul ax, height
+    mov bx, ax  ; 存储 height * height 的结果
+    idiv bx     ; AX = weight / (height * height)
+    mov bmi, ax
+
+    ; 在此可添加显示BMI的代码，将结果显示在屏幕上
 
     ; 退出程序
-    mov eax, 1
-    xor ebx, ebx
-    int 0x80
+    mov ax, 4c00h
+    int 21h
 
-encrypt_file:
-    ; 实现文件加密的汇编代码
-    ; eax: 文件描述符，ebx: 输入文件名，ecx: 密钥，edx: 输出文件名
-
-    ; 打开输入文件
-    mov eax, 5
-    mov ecx, 0
-    int 0x80  ; sys_open
-
-    ; 创建输出文件
-    mov eax, 8
-    mov edx, 2
-    int 0x80  ; sys_creat
-
-    ; 读取输入文件内容并加密
-    mov eax, 3
-    lea ecx, [buf]
-    mov edx, 100  ; 读取的字节数
-    int 0x80  ; sys_read
-
-    ; 加密算法（简单示例，实际应用需要更安全的算法）
-    lea edi, [buf]
-    lea esi, [key]
-    xor ecx, ecx
-.encryption_loop:
-    mov al, [edi + ecx]
-    xor al, [esi + ecx]
-    mov [edi + ecx], al
-    inc ecx
-    cmp ecx, 100
-    jl .encryption_loop
-
-    ; 写入加密后的内容到输出文件
-    mov eax, 4
-    mov edx, 100  ; 写入的字节数
-    int 0x80  ; sys_write
-
-    ; 关闭文件
-    mov eax, 6
-    int 0x80  ; sys_close
-
+GetInput:
+    ; 从用户输入获取体重和身高
+    ; 在实际应用中，需要更复杂的输入处理
+    ; 这里简化为直接赋予固定值
+    mov weight, 7000  ; 70 kg
+    mov height, 175   ; 175 cm
     ret
 
-decrypt_file:
-    ; 实现文件解密的汇编代码
-    ; eax: 文件描述符，ebx: 输入文件名，ecx: 密钥，edx: 输出文件名
-
-    ; 打开输入文件
-    mov eax, 5
-    mov ebx, ebx  ; 清空ebx
-    mov ecx, 0
-    int 0x80  ; sys_open
-
-    ; 创建输出文件
-    mov eax, 8
-    mov edx, 2
-    int 0x80  ; sys_creat
-
-    ; 读取输入文件内容并解密
-    mov eax, 3
-    lea ecx, [buf]
-    mov edx, 100  ; 读取的字节数
-    int 0x80  ; sys_read
-
-    ; 解密算法（与加密算法相反）
-    lea edi, [buf]
-    lea esi, [key]
-    xor ecx, ecx
-.decryption_loop:
-    mov al, [edi + ecx]
-    xor al, [esi + ecx]
-    mov [edi + ecx], al
-    inc ecx
-    cmp ecx, 100
-    jl .decryption_loop
-
-    ; 写入解密后的内容到输出文件
-    mov eax, 4
-    mov edx, 100  ; 写入的字节数
-    int 0x80  ; sys_write
-
-    ; 关闭文件
-    mov eax, 6
-    int 0x80  ; sys_close
-
-    ret
-
-section .bss
-    buf resb 100
+code ends
+end start
