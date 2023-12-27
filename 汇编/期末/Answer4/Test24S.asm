@@ -49,7 +49,7 @@ START:
 	SUB  AX,  Z   
 	SBB  BX,  Z[2]
 	SBB  CX,  Z[4]
-	SBB  CX,  Z[6]
+	SBB  DX,  Z[6]
 	  
 	MOV  W,   AX  
 	MOV  W[2], BX

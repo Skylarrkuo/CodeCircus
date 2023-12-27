@@ -49,7 +49,7 @@ Display	:
     AND CX,00FFH 
     MOV SI,1
     MOV AH,9
-    MOV DX, OFFSET Prompt1
+    MOV DX, OFFSET Prompt2
     INT 21H ;显示提示信息 2
 Again: ;循环显示密文
 	MOV AH,2
