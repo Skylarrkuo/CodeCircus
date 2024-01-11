@@ -1,6 +1,6 @@
 {
   "C_Cpp_Runner.msvcBatchPath": "",
-  "C_Cpp_Runner.cCompilerPath": "C:/mingw64/bin/gcc.exe",
+  "C_Cpp_Runner.cCompilerPath": "C:/Windows/mingw64/bin/gcc.exe",
   "C_Cpp_Runner.cppCompilerPath": "g++",
   "C_Cpp_Runner.debuggerPath": "gdb",
   "C_Cpp_Runner.cStandard": "",
@@ -55,5 +55,5 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp.default.compilerPath": "C:\\mingw64\\bin\\gcc.exe"
+  "C_Cpp.default.compilerPath": "C:\\Windows\\mingw64\\bin\\gcc.exe"
 }

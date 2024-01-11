@@ -17,13 +17,13 @@
                 "databaseFilename": "",
                 "path": [
                     "${workspaceRoot}",
-                    "C:/mingw64/include/**",
-                    "C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++",
-                    "C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32",
-                    "C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward",
-                    "C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include",
-                    "C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed",
-                    "C:/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"
+                    "C:/Windows/mingw64/include/**",
+                    "C:/Windows/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++",
+                    "C:/Windows/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32",
+                    "C:/Windows/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward",
+                    "C:/Windows/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include",
+                    "C:/Windows/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed",
+                    "C:/Windows/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"
                 ]
             },
             "cStandard": "${default}",
