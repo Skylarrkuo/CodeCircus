@@ -15,21 +15,30 @@
 */
 #include <iostream>
 using namespace std;
-int gcd(int &x, int &y)
-{
+
+int gcd(int &a, int &b)
+{ // 欧几里得算法计算公约数
     int r, t;
-    if (x < y)
+    if (a < b) // 始终使a>b
     {
-        t = x;
-        x = y;
-        y = t;
+        t = a;
+        a = b;
+        b = t;
     }
-    r = 1;
+    
+    r = a % b;//首次相除取余数
+    
+    if (r == 0)
+    {//如果a可以被b整除则b为最大公约数
+        a = b;
+        return 0;
+    }
+
     while (r != 0)
-    {
-        x = y;
-        y = x%y;
-        r = y;
+    {//辗转相除直到余数为0
+        r = a % b;
+        a = b;
+        b = r;
     }
 }
 
@@ -38,7 +47,7 @@ int main()
     for (int x, y; cin >> x >> y;) // 输入多组数据，为空时结束
     {
         gcd(x, y); // 调用欧几里得算法求最大公约数
-        cout << "gcb=" << y << endl;
+        cout <<  x << endl;
     }
     return 0;
 }
