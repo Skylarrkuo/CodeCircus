@@ -23,6 +23,9 @@ int LAD(int arr[]){
 
 int main(){
     int arr[10];
-    
+    int n = 10;
+    for (int i = 0; i <= n;i++){
+
+    }
     return 0;
 }
