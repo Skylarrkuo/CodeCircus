@@ -1,31 +1,56 @@
 /*
-â‘¡æœ€æŽ¥è¿‘æ•°ï¼›
-ã€é¢˜ç›®æè¿°ã€‘
-ç»™ä½ ä¸ªæ•´æ•°æ•°ç»„arrï¼Œå…¶ä¸­æ¯ä¸ªå…ƒç´ éƒ½ä¸ç›¸åŒã€‚
-è¯·ä½ æ‰¾åˆ°æ‰€æœ‰å…·æœ‰æœ€å°ç»å¯¹å·®çš„å…ƒç´ å¯¹ï¼Œå¹¶ä¸”æŒ‰å‡åºçš„é¡ºåºè¿”å›žã€‚
-ã€è¾“å…¥æ ¼å¼ã€‘
-è¾“å…¥nä¸ªæ•´æ•°ï¼Œå…¶ä¸­æ¯ä¸ªå…ƒç´ éƒ½ä¸ç›¸åŒã€‚
-ã€è¾“å‡ºæ ¼å¼ã€‘
-æ‰¾åˆ°æ‰€æœ‰å…·æœ‰æœ€å°ç»å¯¹å·®çš„å…ƒç´ å¯¹ï¼Œå¹¶ä¸”æŒ‰å‡åºçš„é¡ºåºè¿”å›žã€‚
-ã€è¾“å…¥ç¤ºä¾‹ã€‘
+¢Ú×î½Ó½üÊý£»
+¡¾ÌâÄ¿ÃèÊö¡¿
+¸øÄã¸öÕûÊýÊý×éarr£¬ÆäÖÐÃ¿¸öÔªËØ¶¼²»ÏàÍ¬¡£
+ÇëÄãÕÒµ½ËùÓÐ¾ßÓÐ×îÐ¡¾ø¶Ô²îµÄÔªËØ¶Ô£¬²¢ÇÒ°´ÉýÐòµÄË³Ðò·µ»Ø¡£
+¡¾ÊäÈë¸ñÊ½¡¿
+ÊäÈën¸öÕûÊý£¬ÆäÖÐÃ¿¸öÔªËØ¶¼²»ÏàÍ¬¡£
+¡¾Êä³ö¸ñÊ½¡¿
+ÕÒµ½ËùÓÐ¾ßÓÐ×îÐ¡¾ø¶Ô²îµÄÔªËØ¶Ô£¬²¢ÇÒ°´ÉýÐòµÄË³Ðò·µ»Ø¡£
+¡¾ÊäÈëÊ¾Àý¡¿
 3 8 -10 23 19 -4 -14 27
-ã€è¾“å‡ºç¤ºä¾‹ã€‘
+¡¾Êä³öÊ¾Àý¡¿
 -14 -10
 19 23
 23 27
 */
 #include <iostream>
+#include <algorithm>
+#include <cmath>
+#define MAXNUM 100
 using namespace std;
 
-int LAD(int arr[]){
+// º¯ÊýÓÃÓÚ¼ÆËãÊý×éÖÐ×îÐ¡µÄÔªËØ²îÖµ
+int MinEDAs(int arr[], int n)
+{
+    sort(arr, arr + n);    // ¶ÔÊý×é½øÐÐÅÅÐò£¬¼õÉÙ±È½Ï´ÎÊý,ÏµÍ³Ä¬ÈÏ¿ìÅÅ
+    int minNum = 99999999; // ³õÊ¼»¯×îÐ¡²îÖµÎªÒ»¸ö½Ï´óµÄÊý
+    for (int i = 0; i < n - 1; i++)
+    {
+        minNum = min(minNum, abs(arr[i] - arr[i + 1])); // ¸üÐÂ×îÐ¡²îÖµÎªÏàÁÚÔªËØÖ®²îµÄ×îÐ¡Öµ
+    }
 
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (minNum == abs(arr[i] - arr[i + 1]))
+        {
+            cout << "[" << arr[i] << "," << arr[i + 1] << "]" << endl;
+        } // ±È½ÏÊä³ö×îÐ¡²îÖµÎªÏàÁÚÔªËØÖ®²îµÄ×îÐ¡ÖµµÄÊý¶Ô
+    }
+    return minNum;
 }
 
-int main(){
-    int arr[10];
-    int n = 10;
-    for (int i = 0; i <= n;i++){
-
+int main()
+{
+    int arr[MAXNUM], n;
+    cout << "ÊäÈëÊý×é´óÐ¡£º";
+    cin >> n;
+    cout << "ÊäÈëÔªËØ£º";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
     }
+    cout << "¾ßÓÐ×îÐ¡¾ø¶Ô²îµÄÔªËØ¶Ô£º" << endl; // µ÷ÓÃº¯Êý¼ÆËã²¢Êä³ö½á¹û
+    MinEDAs(arr, n);
     return 0;
 }
