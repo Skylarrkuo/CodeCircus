@@ -1,10 +1,10 @@
 import java.util.Scanner;
+
 public class Hello {
 	public static void main(String[] args) {
 		int num = (int) (Math.random() * 100) + 1;// (1, 100)
 		Scanner scanner = new Scanner(System.in);
 		int input = scanner.nextInt();
-
 		while (true) {
 			if (input == 0) {
 				System.out.println("放弃");
