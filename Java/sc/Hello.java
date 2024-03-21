@@ -1,16 +1,24 @@
-public class Hello{
-		public static void main(String args[]){
-			System.out.println("大家好！");
-			System.out.println("Nice to meet you");
-			Student stu = new Student(0, 0, null, null, 0);
-			stu.speak("We are students");
-		}
-}
-class Student{
-	public Student(int i, int j, String string, String string2, int k) {
-    }
+import java.util.Scanner;
+public class Hello {
+	public static void main(String[] args) {
+		int num = (int) (Math.random() * 100) + 1;// (1, 100)
+		Scanner scanner = new Scanner(System.in);
+		int input = scanner.nextInt();
 
-    public void speak(String s){
-		System.out.println(s);
+		while (true) {
+			if (input == 0) {
+				System.out.println("放弃");
+				break;
+			} else if (input == num) {
+				System.out.println("猜对了");
+				break;
+			} else if (input < num) {
+				System.out.println("猜小了");
+				input = scanner.nextInt();
+			} else if (input > num) {
+				System.out.println("猜大了,输入0放弃");
+				input = scanner.nextInt();
+			}
+		}
 	}
 }
