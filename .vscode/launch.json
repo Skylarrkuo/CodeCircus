@@ -1,190 +1,23 @@
 {
-  "version": "0.2.0",
   "configurations": [
     {
-      "type": "java",
-      "name": "demo",
-      "request": "launch",
-      "mainClass": "Java.Qimo.t4.demo",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "Demo3",
-      "request": "launch",
-      "mainClass": "t4.Demo3",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "Demo1",
-      "request": "launch",
-      "mainClass": "t2.Demo1",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "Demo",
-      "request": "launch",
-      "mainClass": "Demo",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "Example3_9",
-      "request": "launch",
-      "mainClass": "Example3_9",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "Example7_6",
-      "request": "launch",
-      "mainClass": "Example7_6",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "DrawFunction",
-      "request": "launch",
-      "mainClass": "DrawFunction",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "DrawMath",
-      "request": "launch",
-      "mainClass": "DrawMath",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "five",
-      "request": "launch",
-      "mainClass": "five",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "Hello",
-      "request": "launch",
-      "mainClass": "Hello",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "A",
-      "request": "launch",
-      "mainClass": "A",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "A",
-      "request": "launch",
-      "mainClass": "packone.A",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "main",
-      "request": "launch",
-      "mainClass": "T1.main",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "StduentDemo",
-      "request": "launch",
-      "mainClass": "T2.StduentDemo",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "Test",
-      "request": "launch",
-      "mainClass": "Test",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "StudentTest",
-      "request": "launch",
-      "mainClass": "StudentTest",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "Launch Hello",
-      "request": "launch",
-      "mainClass": "Java.sc.Hello",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "type": "java",
-      "name": "Launch HelloWorld",
-      "request": "launch",
-      "mainClass": "Java.sc.HelloWorld",
-      "projectName": "vscode_bb32341d"
-    },
-    {
-      "name": "(Windows) Launch",
-      "type": "cppvsdbg",
-      "request": "launch",
-      "program": "cmd",
-      "preLaunchTask": "echo",
-      "args": [
-        "/C",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe",
-        "&",
-        "echo.",
-        "&",
-        "pause"
-      ],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
-      "environment": [],
-      "externalConsole": true
-    },
-    {
-      "name": "(gdb) Launch",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
+      "MIMode": "gdb",
       "args": [],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
+      "cwd": "${fileDirname}",
+      "env": {
+        "PATH": "C:\\Windows\\mingw64\\bin;${env:PATH}"
+      },
       "environment": [],
       "externalConsole": true,
-      "MIMode": "gdb",
-      "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe",
-      "preLaunchTask": "echo",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
-    },
-    {
-      "name": "C/C++ Runner: Debug Session",
-      "type": "cppdbg",
+      "internalConsosleOptions": "neverOpen",
+      "miDebuggerPath": "C:\\Windows\\mingw64\\bin\\gdb.exe",
+      "name": "single file debug",
+      "preLaunchTask": "ascii check",
+      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
       "request": "launch",
-      "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "f:/BCXX/vscode",
-      "program": "f:/BCXX/vscode/build/Debug/outDebug",
-      "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
-          "ignoreFailures": true
-        }
-      ]
+      "type": "cppdbg"
     }
-  ]
+  ],
+  "version": "0.2.0"
 }

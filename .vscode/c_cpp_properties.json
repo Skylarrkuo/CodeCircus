@@ -1,17 +1,13 @@
 {
   "configurations": [
     {
-      "name": "windows-gcc-x64",
+      "compilerPath": "C:\\Windows\\mingw64\\bin\\g++.exe",
+      "cppStandard": "c++17",
       "includePath": [
-        "${workspaceFolder}/**"
+        "${{workspaceFolder}}/**"
       ],
-      "compilerPath": "C:/Windows/mingw64/bin/gcc.exe",
-      "cStandard": "${default}",
-      "cppStandard": "${default}",
       "intelliSenseMode": "windows-gcc-x64",
-      "compilerArgs": [
-        ""
-      ]
+      "name": "Win32"
     }
   ],
   "version": 4

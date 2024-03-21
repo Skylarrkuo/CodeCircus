@@ -1,27 +1,80 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-       {
-            "label": "echo",
-            "type": "shell",
-            "command": "gcc",
-            "args": [
-                "-g",
-                "${file}",
-                "-o",
-                "${fileBasenameNoExtension}.exe",
-                "-fexec-charset=GBK"//解决中文乱码
-           ]
-       }
-   ],
-    "presentation": {
-        "echo": true,
-        "reveal": "always",
+  "options": {
+    "env": {
+      "Path": "C:\\Windows\\mingw64\\bin;${env:Path}"
+    }
+  },
+  "tasks": [
+    {
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "-std=c++17"
+      ],
+      "command": "C:\\Windows\\mingw64\\bin\\g++.exe",
+      "group": {
+        "isDefault": true,
+        "kind": "build"
+      },
+      "label": "single file build",
+      "presentation": {
+        "clear": true,
+        "echo": false,
         "focus": false,
         "panel": "shared",
-        "showReuseMessage": true,
-        "clear": false
-   }
- }
+        "reveal": "silent",
+        "showReuseMessage": false
+      },
+      "problemMatcher": "$gcc",
+      "type": "process"
+    },
+    {
+      "args": [],
+      "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "dependsOn": "single file build",
+      "label": "run and pause",
+      "options": {
+        "cwd": "${fileDirname}",
+        "env": {
+          "Path": "C:\\Windows\\mingw64\\bin;${env:Path}"
+        }
+      },
+      "presentation": {
+        "clear": true,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "never",
+        "showReuseMessage": false
+      },
+      "problemMatcher": [],
+      "type": "pause-console"
+    },
+    {
+      "args": [
+        "-ExecutionPolicy",
+        "ByPass",
+        "-NoProfile",
+        "-File",
+        "C:\\Users\\gmc13\\AppData\\Roaming\\vscch/check-ascii.ps1",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "command": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "dependsOn": "single file build",
+      "label": "ascii check",
+      "presentation": {
+        "clear": true,
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "reveal": "never",
+        "showReuseMessage": false
+      },
+      "problemMatcher": [],
+      "type": "process"
+    }
+  ],
+  "version": "2.0.0"
+}
