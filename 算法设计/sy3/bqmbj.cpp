@@ -1,6 +1,5 @@
 //百钱买百鸡
 #include <stdio.h>
-//ceshi
 int main() {
    int x, y, z;
     for (x = 0; x <= 20; x += 3) {  // 公鸡每次增加 3 只 
