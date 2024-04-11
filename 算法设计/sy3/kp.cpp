@@ -48,3 +48,21 @@ int main() {
 
     return 0;
 }
+/*
+算法: 快速排序
+
+输入: 一个数组 nums，数组的起始索引 left，数组的结束索引 right
+
+输出: 经过快速排序后的数组 nums
+
+1. 如果 left 大于等于 right，则返回
+2. 选择基准值 pivot 为 nums[left]
+3. 初始化两个指针 l = left, r = right
+4. 当 l < r 时循环：
+   - 从右向左找到第一个小于 pivot 的元素，并赋值给 nums[l]
+   - 从左向右找到第一个大于 pivot 的元素，并赋值给 nums[r]
+   - 重复上述步骤直到 l >= r
+5. 将基准值 pivot 放到最终位置 nums[l]
+6. 递归调用快速排序处理左边部分：quickSort(nums, left, l - 1)
+7. 递归调用快速排序处理右边部分：quickSort(nums, l + 1, right)
+*/

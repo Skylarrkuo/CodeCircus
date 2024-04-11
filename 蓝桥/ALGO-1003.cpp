@@ -31,6 +31,6 @@ ALGO-1003
 using namespace std;
 
 int main(){
-
+    
     return 0;
 }
