@@ -1,20 +1,62 @@
-// VS Code C/C++ æµ‹è¯•ä»£ç  "Hello World"
-// ç”± VSCodeConfigHelper v4.0.10 ç”Ÿæˆ
-
-// æ‚¨å¯ä»¥åœ¨å½“å‰æ–‡ä»¶å¤¹ï¼ˆå·¥ä½œæ–‡ä»¶å¤¹ï¼‰ä¸‹æ–°å»º .cpp æºæ–‡ä»¶ç¼–å†™ä»£ç ã€‚
-
-// æŒ‰ä¸‹ F6 ç¼–è¯‘è¿è¡Œã€‚
-// æŒ‰ä¸‹ F5 ç¼–è¯‘è°ƒè¯•ã€‚
-// æŒ‰ä¸‹ Ctrl + Shift + B ç¼–è¯‘ã€‚
-
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
-int main() {
-    // åœ¨æ ‡å‡†è¾“å‡ºä¸­æ‰“å° "Hello, world!"
-    std::cout << "Hello, world!" << std::endl;
+using namespace std;
+
+// ¶¨Òå»î¶¯½á¹¹Ìå
+struct Activity {
+    int start;
+    int end;
+    int index;
+
+    Activity(int s, int e, int i) : start(s), end(e), index(i) {}
+};
+
+// ±È½Ïº¯Êı£¬°´½áÊøÊ±¼äÅÅĞò
+bool compareActivity(const Activity &a, const Activity &b) {
+    return a.end < b.end;
 }
 
-// æ­¤æ–‡ä»¶ç¼–è¯‘è¿è¡Œå°†è¾“å‡º "Hello, world!"ã€‚
-// æŒ‰ä¸‹ F6 åï¼Œä½ å°†åœ¨å¼¹å‡ºçš„ç»ˆç«¯çª—å£ä¸­çœ‹åˆ°è¿™ä¸€è¡Œå­—ã€‚
-// !! é‡è¦æç¤ºï¼šè¯·æ‚¨åœ¨ç¼–å†™ä»£ç å‰ï¼Œç¡®è®¤æ–‡ä»¶åä¸å«ä¸­æ–‡æˆ–ç‰¹æ®Šå­—ç¬¦ã€‚ !!
-// è‹¥é‡åˆ°é—®é¢˜ï¼Œè¯·è”ç³»å¼€å‘è€… guyutongxue@163.comã€‚
+vector<int> activitySelection(vector<Activity> &activities) {
+    vector<int> selectedActivities;
+    // °´½áÊøÊ±¼äÅÅĞò
+    sort(activities.begin(), activities.end(), compareActivity);
+
+    // µÚÒ»¸ö»î¶¯Ò»¶¨»á±»Ñ¡ÖĞ
+    selectedActivities.push_back(activities[0].index);
+
+    int lastEndTime = activities[0].end;
+    // ´ÓµÚ¶ş¸ö»î¶¯¿ªÊ¼±éÀú£¬Èç¹û¿ªÊ¼Ê±¼ä´óÓÚµÈÓÚÉÏÒ»¸öÑ¡ÖĞ»î¶¯µÄ½áÊøÊ±¼ä£¬ÄÇÃ´¾ÍÑ¡ÖĞ
+    for (int i = 1; i < activities.size(); ++i) {
+        if (activities[i].start >= lastEndTime) {
+            selectedActivities.push_back(activities[i].index);
+            lastEndTime = activities[i].end;
+        }
+    }
+
+    return selectedActivities;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<Activity> activities;
+    for (int i = 0; i < n; ++i) {
+        int start, end;
+        cin >> start >> end;
+        activities.push_back(Activity(start, end, i + 1));
+    }
+
+    vector<int> selectedActivities = activitySelection(activities);
+
+    // Êä³ö½á¹û
+    cout << "Ñ¡ÖĞµÄ»î¶¯¼¯ºÏ£º" << endl;
+    for (int i = 0; i < selectedActivities.size(); ++i) {
+        cout << "(" << activities[selectedActivities[i] - 1].start << "," << activities[selectedActivities[i] - 1].end << ") ";
+    }
+    cout << endl;
+
+    return 0;
+}
