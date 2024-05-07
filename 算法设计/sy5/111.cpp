@@ -20,4 +20,26 @@
 【输出示例】
 7
 */
-
+#include <stdio.h>
+#include <algorithm>
+using namespace std;//这里以顺序遍历为例
+int num[1005][1005];//用于储存数塔每个位置的数字
+int dp[1005][1005];//用于储存经过数塔每个位置所能达28到的最大和
+int main()
+{
+    int r;
+    scanf("%d",&r);//输入数塔行数
+    for(int i=1;i<=r;i++)
+        for(int j=1;j<=i;j++)
+            scanf("%d",&num[i][j]);
+    //输入数塔数据，注意i和j要从1开始，防止数组越界
+    for(int i=1;i<=r;i++)//共计r行
+        for(int j=1;j<=i;j++)//每行有j个数字
+            dp[i][j]=max(dp[i-1][j],dp[i-1][j-1])+num[i][j];
+    //经过该数字的最大和，为左上角和右上角中的max，再加上该数字
+    int ans=0;
+    for(int i=1;i<=r;i++)
+        ans=max(ans,dp[r][i]);//从最后一行中找到最大数
+    printf("%d\n",ans);//就是答案
+    return 0;
+}
