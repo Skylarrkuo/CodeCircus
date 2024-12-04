@@ -1,11 +1,6 @@
 # 使用VS Code
 
 ## 编程学习记录
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=Skylarrkuo/CodeCircus&type=Date)](https://star-history.com/#Skylarrkuo/CodeCircus&Date)
-
 ### 学习语言
 
 C/C++，Java，Python,汇编
@@ -21,6 +16,11 @@ C/C++，Java，Python,汇编
 * 3、部分蓝桥杯试题的练习
 
 * 4、一点点零散的网上学到的代码
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Skylarrkuo/CodeCircus&type=Date)](https://star-history.com/#Skylarrkuo/CodeCircus&Date)
+
  <br>
   <br>
 
