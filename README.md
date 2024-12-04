@@ -2,7 +2,9 @@
 
 ## 编程学习记录
 
-![输入图片说明](python/ciyun/wHAMLET.png)
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Skylarrkuo/CodeCircus&type=Date)](https://star-history.com/#Skylarrkuo/CodeCircus&Date)
 
 ### 学习语言
 
