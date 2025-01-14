@@ -1,11 +1,12 @@
 #include <stdio.h>
-#include <math.h >
+#include <math.h>
 
-int main(){
+int main()
+{
     float p, r, n;
     r = 0.07;
     n = 10;
-    p = pow(1 + r,n);
-    printf("åå¹´ä¹‹åæˆ‘å›½å›½æ°‘ç”Ÿäº§æ€»å€¼ä¸å¢é•¿äº†%f%%", p);
+    p = pow(1 + r, n);
+    printf("Ê®ÄêÖ®ºóÎÒ¹ú¹úÃñÉú²ú×ÜÖµÓëÔö³¤ÁË%f%%", p);
     return 0;
 }
