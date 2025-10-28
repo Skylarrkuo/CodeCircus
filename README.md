@@ -8,11 +8,11 @@
 >  
 > —— Frederick Brooks，《人月神话》
 
----
+
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)  [![Last Commit](https://img.shields.io/github/last-commit/Skylarrkuo/CodeCircus)](https://github.com/Skylarrkuo/CodeCircus/commits/main)  [![Open Issues](https://img.shields.io/github/issues/Skylarrkuo/CodeCircus)](https://github.com/Skylarrkuo/CodeCircus/issues)  [![GitHub Stars](https://img.shields.io/github/stars/Skylarrkuo/CodeCircus)](https://github.com/Skylarrkuo/CodeCircus/stargazers)  
 
----
+
 
 ## 项目概述
 
@@ -21,7 +21,7 @@
 
 核心定位：多语言编程实践库 + 算法训练场 + 学习笔记归档
 
----
+
 
 ## 🎪 项目成分
 
@@ -46,7 +46,7 @@ CodeCircus/
 └── 📚 学习笔记/              # 配套学习笔记和心得总结
 ```
 
----
+
 
 ## 🚀 技术栈
 
@@ -58,7 +58,7 @@ CodeCircus/
 
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)  ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)  
 
----
+
 
 ## 🌟 特色亮点
 
@@ -79,7 +79,7 @@ CodeCircus/
 - **机器学习基础算法实现**：助力AI核心技能构建  
 - **数据结构优化**：针对AI常用结构深入实现与调优  
 
----
+
 
 ## 🏁 快速开始
 
@@ -113,7 +113,7 @@ cd 教材实践/人工智能基础/排序算法
 python bubble_sort.py
 ```
 
----
+
 
 ## 🤝 贡献指南
 
@@ -123,13 +123,13 @@ python bubble_sort.py
 - **贡献代码**：Fork → 新建分支 → 提交改动 → 发起 Pull Request  
 - **代码规范**：遵守项目注释和风格规范，新增代码附测试用例，确保通过基本测试  
 
----
+
 
 ## 📄 许可证
 
 本项目采用 [GNU GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.html) 开源许可证 — 详见 LICENSE 文件。
 
----
+
 
 ## 👨💻 关于作者
 
@@ -140,7 +140,7 @@ python bubble_sort.py
 - 📝 博客 ：[个人技术博客链接]  
 - 📧 联系 ：[你的邮箱地址]  
 
----
+
 
 ## 📊 Star 贡献历史
 
