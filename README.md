@@ -10,10 +10,7 @@
 
 ---
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)  
-[![Last Commit](https://img.shields.io/github/last-commit/Skylarrkuo/CodeCircus)](https://github.com/Skylarrkuo/CodeCircus/commits/main)  
-[![Open Issues](https://img.shields.io/github/issues/Skylarrkuo/CodeCircus)](https://github.com/Skylarrkuo/CodeCircus/issues)  
-[![GitHub Stars](https://img.shields.io/github/stars/Skylarrkuo/CodeCircus)](https://github.com/Skylarrkuo/CodeCircus/stargazers)  
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)  [![Last Commit](https://img.shields.io/github/last-commit/Skylarrkuo/CodeCircus)](https://github.com/Skylarrkuo/CodeCircus/commits/main)  [![Open Issues](https://img.shields.io/github/issues/Skylarrkuo/CodeCircus)](https://github.com/Skylarrkuo/CodeCircus/issues)  [![GitHub Stars](https://img.shields.io/github/stars/Skylarrkuo/CodeCircus)](https://github.com/Skylarrkuo/CodeCircus/stargazers)  
 
 ---
 
@@ -55,16 +52,11 @@ CodeCircus/
 
 ### 编程语言
 
-![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white)  
-![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)  
-![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)  
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)  
-![Assembly](https://img.shields.io/badge/Assembly-6E4C13?style=for-the-badge&logo=assemblyscript&logoColor=white)  
+![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white)  ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)  ![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)  ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)  ![Assembly](https://img.shields.io/badge/Assembly-6E4C13?style=for-the-badge&logo=assemblyscript&logoColor=white)  
 
 ### 开发及文档工具
 
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)  
-![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)  
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)  ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)  
 
 ---
 
